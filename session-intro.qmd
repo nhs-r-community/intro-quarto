@@ -1,0 +1,186 @@
+---
+title: "Introduction to Quarto"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session - Introduction"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute: 
+  echo: false
+  eval: true
+embed-resources: true  
+---
+
+```{r}
+#| label: packages
+library(emo)
+library(countdown)
+```
+
+## Agenda - session one (about 3.5 hours)
+
+Chapter overview
+
+::: {.fragment .fade-in}
+Getting set up ; What's inside?  
+:::
+::: {.fragment .fade-in}
+--------- Break -----------  
+:::
+::: {.fragment .fade-in}
+Text ; Images ; Code chunks  
+:::
+::: {.fragment .fade-in}
+--------- Course end -----------
+:::
+
+
+## Agenda - session two (about 3.5 hours)
+
+Chapter overview
+
+::: {.fragment .fade-in}
+Inline code ; Tabs 
+:::
+::: {.fragment .fade-in}
+--------- Break -----------
+:::
+::: {.fragment .fade-in}
+Output Formats ; Parameters; Command Line
+:::
+::: {.fragment .fade-in}
+Loop reports ; Extras
+:::
+::: {.fragment .fade-in}
+--------- Course end ---------
+:::
+
+
+## Course Aims
+
+::: incremental
+-   Get set up using Quarto within RStudio
+-   To introduce Quarto as a way to produce reports/slides/books and websites
+-   Show the potential for using Quarto as a work flow for any analysis project
+:::
+
+## What is Quarto - what do you think?
+
+::: incremental
+- "An open-source scientific and technical publishing system"
+
+- A document format (`.qmd`) 
+
+- An R package named `{quarto}`
+
+- A publishing system for making dynamic documents with R, Python, Julia and Observable 
+
+- "a unified authoring framework for data science, combining your code, its results, and your prose"
+
+- Wizardry 
+:::
+
+## What is Quarto - answers
+
+::: incremental
+- ["An open-source scientific and technical publishing system"](https://quarto.org/) `r emo::ji("heavy_check_mark")`
+
+- A document format (`.qmd`) `r emo::ji("heavy_check_mark")`
+
+- [An R package named `{quarto}`](https://github.com/quarto-dev/quarto-r) `r emo::ji("heavy_check_mark")`
+
+- A publishing system for making dynamic documents with R, Python, Julia and Observable `r emo::ji("heavy_check_mark")`
+
+- ["a unified authoring framework for data science, combining your code, its results, and your prose"](https://r4ds.hadley.nz/quarto.html) `r emo::ji("heavy_check_mark")`
+
+- Wizardry `r emo::ji("wizard")`
+:::
+
+# Let's get started
+
+## Checking first...
+
+That everyone is:
+
+* set up on RStudio Cloud (own laptops are fine to use instead with the latest RStudio)
+
+## Also note...
+
+[TODO]
+Code doesn't copy to MS Teams with the correct indentations but code can be copied from the [slides](),
+
+:::{.callout-important collapse=false appearance='default' icon=true}
+## Quarto the CLI command line interface (important)
+- Quarto is an [addition](https://quarto.org/docs/get-started/) to the RStudio IDE
+- {quarto} the package has functions the run some of the commands - more later
+:::
+
+
+## Together we'll open a Quarto template
+
+* Go to `File/New File/Quarto document...`
+* A wizard will prompt a Title and Author
+* **Render** this document and save the file when the wizard appears
+
+:::{.callout-warning collapse=false appearance='default' icon=true}
+## File permissions (warning)
+- the file must have access to write/save files to the same folder that the `.qmd` is in
+- it will run create supporting files and folders and then clear them away
+:::
+
+## Your turn
+
+[TODO] Look at the source, then **Render** to HTML
+
+Try to identify these parts in the source and the output:
+
+:::: {.columns}
+
+::: {.column width='40%'}
+
+1. The **metadata**
+1. The **text** 
+1. The **code**
+1. The **output**
+
+**If this was easy**, try to find all code that produces a *plot*.
+:::
+
+::: {.column width='60%'}
+
+```{r}
+countdown::countdown(minutes = 2,
+                     color_border = "#005EB8",
+                     color_text = "#005EB8",
+                     color_running_text = "white",
+                     color_running_background = "#005EB8",
+                     color_finished_text = "#005EB8",
+                     color_finished_background = "white",
+                     margin = "0.9em",
+                     font_size = "2em")
+```
+:::
+
+::::
+
+## Basic anatomy I
+
+[TODO]
+We look at the *source* anatomy for `qmd` together:
+
+1. The **metadata**
+1. The **text** 
+1. The **code**
+
+### Basic anatomy II
+
+1. The **output**
+
+## End session
