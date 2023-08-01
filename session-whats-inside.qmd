@@ -123,17 +123,18 @@ _psst...answers on the next slide..._
 :::
 
 ```{r}
-countdown::countdown(minutes = 3,
-                     color_border = "#005EB8",
-                     color_text = "#005EB8",
-                     color_running_text = "white",
-                     color_running_background = "#005EB8",
-                     color_finished_text = "#005EB8",
-                     color_finished_background = "white",
-                     font_size = "2em",
-                     warn_when = 10,
-                     bottom = 1
-                     )
+countdown::countdown(
+  minutes = 3,
+  color_border = "#005EB8",
+  color_text = "#005EB8",
+  color_running_text = "white",
+  color_running_background = "#005EB8",
+  color_finished_text = "#005EB8",
+  color_finished_background = "white",
+  font_size = "2em",
+  warn_when = 10,
+  bottom = 1
+)
 ```
 
 ## Answers
@@ -180,6 +181,5 @@ Change site to `Ireland` and Render, what changes?
 ```{r}
 countdown::countdown(minutes = 10)
 ```
-
 
 ## Next Section

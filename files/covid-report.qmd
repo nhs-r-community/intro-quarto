@@ -20,7 +20,7 @@ execute:
 library(tidyverse)
 library(NHSRdatasets)
 
-local_covid <- NHSRdatasets::covid19 |> 
+local_covid <- NHSRdatasets::covid19 |>
   filter(countries_and_territories == params$site)
 ```
 
@@ -33,13 +33,15 @@ local_covid <- NHSRdatasets::covid19 |>
 ```{r}
 #| label: covid-chart
 
-ggplot(data = local_covid, aes(date_reported,
-                               cases)) + 
-  geom_point() + 
-  geom_line() + 
+ggplot(data = local_covid, aes(
+  date_reported,
+  cases
+)) +
+  geom_point() +
+  geom_line() +
   labs(
-    x = "Date Reported", 
+    x = "Date Reported",
     y = "Cases"
   ) +
-  expand_limits(y = 0) 
+  expand_limits(y = 0)
 ```
