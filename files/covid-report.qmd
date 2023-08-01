@@ -1,0 +1,43 @@
+---
+title: "Covid data by Country"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    code-tools: true
+    embed-resources: true
+params:
+  site: "United_Kingdom"
+execute:
+  warning: false
+  echo: false
+  eval: true
+  message: false
+---
+
+```{r}
+library(tidyverse)
+library(NHSRdatasets)
+
+local_covid <- NHSRdatasets::covid19 |> 
+  filter(countries_and_territories == params$site)
+```
+
+# Overview
+
+`r params$site` has `r local_covid |> summarise(total = n())` records.
+
+# Over timeRatings
+
+```{r}
+
+ggplot(data = local_covid, aes(date_reported,
+                               cases)) + 
+  geom_point() + 
+  geom_line() + 
+  labs(
+    x = "Date Reported", 
+    y = "Cases"
+  ) +
+  expand_limits(y = 0) 
+```
