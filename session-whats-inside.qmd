@@ -22,7 +22,6 @@ embed-resources: true
 #| label: packages
 library(emo)
 library(countdown)
-library(ymlthis)
 ```
 
 ## How *does* Quarto work?
