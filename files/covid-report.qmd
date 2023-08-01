@@ -16,6 +16,7 @@ execute:
 ---
 
 ```{r}
+#| label: set-up
 library(tidyverse)
 library(NHSRdatasets)
 
@@ -27,9 +28,10 @@ local_covid <- NHSRdatasets::covid19 |>
 
 `r params$site` has `r local_covid |> summarise(total = n())` records.
 
-# Over timeRatings
+# Over time
 
 ```{r}
+#| label: covid-chart
 
 ggplot(data = local_covid, aes(date_reported,
                                cases)) + 
