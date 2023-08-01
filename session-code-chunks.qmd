@@ -1,0 +1,69 @@
+---
+title: "Understanding Code Chunks"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session - Code Chunks"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute: 
+  echo: false
+  eval: true
+embed-resources: true  
+---
+
+```{r}
+#| label: packages
+library(countdown)
+library(NHSRdatasets)
+library(dplyr)
+```
+
+## Adding and running code chunks
+
+1. Add a code chunk with ![](img/notebook-insert-chunk.png){fig-alt="Green square button with white c found in RStudio to create a new chunk" width="80"} button 
+1. Keyboard shortcut keys `Ctrl + Alt + i` 
+1. In Visual screen of RStudio type `/` 
+
+Running a chunk
+
+1. `Play` an individual chunk with the green triangle
+1. `Render` button to run all chunks and produce the output
+1. Shortcut key to run a chunk `Ctrl + Shift + Enter`
+
+## Default Code chunk
+
+```{r}
+#| echo: fenced
+#| eval: false
+NHSRdatasets::covid19 |>
+  filter(countries_and_territories == "United_Kingdom") |>
+  summarise(total = n())
+```
+
+Let's see the fate of this chunk?
+
+. . .
+
+```{r}
+NHSRdatasets::covid19 |>
+  filter(countries_and_territories == "United_Kingdom") |>
+  summarise(total = n())
+```
+
+. . .
+
+:::{.callout-note collapse=false appearance='default' icon=true}
+## Tibble?
+This is a view of the data that would normally go to the Console when run as a chunk so includes information
+like data types.
+:::
+
+
+## Next Section
