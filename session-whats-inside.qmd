@@ -1,0 +1,185 @@
+---
+title: "What is inside Quarto in more detail"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session - What's inside?"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute: 
+  echo: false
+  eval: true
+embed-resources: true  
+---
+
+```{r}
+#| label: packages
+library(emo)
+library(countdown)
+```
+
+## How *does* Quarto work?
+
+::: incremental
+-   `r emo::ji("shrug")`
+-   I press `Render`, a document appears, and I believe that anything happening in between could be actual magic!
+-   `knitr` executes the code and converts `.qmd` to `.md`; **Pandoc** renders the `.md` file to the output format you want
+:::
+
+## How *does* Quarto work - answers?
+
+1.  `r emo::ji("shrug")` `r emo::ji("heavy_check_mark")`
+
+2.  ["I press knit, a document appears, and I believe that anything happening in between could be actual magic."](https://twitter.com/allison_horst/status/1070323369600442368?s=20) `r emo::ji("wizard")`)
+
+3.  `knitr` executes the code and converts `.Rmd` to `.md`; **Pandoc** renders the `.md` file to the output format you want. `r emo::ji("heavy_check_mark")`
+
+::: footer
+https://quarto.org/docs/computations/r.html
+:::
+
+## Metadata - YAML
+
+:::: {.columns}
+
+::: {.column width='40%'}
+*"YAML Ain't Markup Language"*
+
+``` yaml
+---
+key: value
+---
+```
+:::
+
+::: {.column width='60%'}
+![Drawn picture of the back of a conductor](img/orchestra.jpg)
+:::
+
+::::
+
+::: {.notes}
+Using the {ymlthis} this section renders the "look" of the YAML with the three dashes then key: value which is the format used in YAML.
+:::
+
+## Output options
+
+## Save output options in your YAML
+
+:::: {.columns}
+
+::: {.column width='40%'}
+Basic YAML
+
+``` yaml
+---
+title: "Report"
+author: "Zoë Turner"
+date: "01/08/2023"
+format: html
+---
+
+```
+:::
+
+::: {.column width='60%'}
+Add html related options
+
+``` yaml
+---
+title: "Report"
+author: "Zoë Turner"
+date: "01/08/2023"
+format: 
+  html:
+    toc: true
+---
+```
+
+:::
+
+::::
+
+## Your turn
+
+# Add output options to YAML
+
+See Quarto [online documentation](https://quarto.org/docs/reference/formats/html.html) for help 
+
+::: {.incremental}
+- Add a table of contents (toc)
+- Move it from the default right to the left
+- Embed the source code (known as `code tools` in Quarto)
+:::
+
+::: footer
+_psst...answers on the next slide..._
+:::
+
+```{r}
+countdown::countdown(
+  minutes = 3,
+  color_border = "#005EB8",
+  color_text = "#005EB8",
+  color_running_text = "white",
+  color_running_background = "#005EB8",
+  color_finished_text = "#005EB8",
+  color_finished_background = "white",
+  font_size = "2em",
+  warn_when = 10,
+  bottom = 1
+)
+```
+
+## Answers
+
+``` yaml
+---
+title: "Untitled"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    code-tools: true
+---
+
+```
+
+::: {.notes}
+Copying the code to MS Teams to share will lose the formatting!
+:::
+
+
+## Parameters
+
+Using data from the {NHSRdatasets} from CRAN and using `covid19`
+
+``` yaml
+---
+title: "Untitled"
+format: 
+  html:
+    toc: true
+    toc-location: left
+    code-fold: true
+    code-tools: true
+params:
+  site: `United_Kingdom`
+---
+```
+
+Change site to `Ireland` and Render, what changes?
+
+## Time for a break! `r emo::ji("stopwatch")`
+ 
+```{r}
+countdown::countdown(minutes = 10)
+```
+
+## Next Section

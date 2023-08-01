@@ -29,17 +29,18 @@ library(countdown)
 Chapter overview
 
 ::: {.fragment .fade-in}
-Getting set up ; What's inside?  
+- Getting set up 
+- What's inside?  
 :::
 ::: {.fragment .fade-in}
 --------- Break -----------  
 :::
 ::: {.fragment .fade-in}
-Text ; Images ; Code chunks  
+- Text 
+- Images 
+- Code chunks  
 :::
-::: {.fragment .fade-in}
---------- Course end -----------
-:::
+
 
 
 ## Agenda - session two (about 3.5 hours)
@@ -47,21 +48,19 @@ Text ; Images ; Code chunks
 Chapter overview
 
 ::: {.fragment .fade-in}
-Inline code ; Tabs 
+- Inline code 
+- Tabs 
 :::
 ::: {.fragment .fade-in}
 --------- Break -----------
 :::
 ::: {.fragment .fade-in}
-Output Formats ; Parameters; Command Line
+- Output Formats
+- Parameters
+- Command Line
+- Loop reports
+- Extras
 :::
-::: {.fragment .fade-in}
-Loop reports ; Extras
-:::
-::: {.fragment .fade-in}
---------- Course end ---------
-:::
-
 
 ## Course Aims
 
