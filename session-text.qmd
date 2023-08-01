@@ -1,0 +1,221 @@
+---
+title: "Formatting text in Quarto"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session - Text"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute: 
+  echo: false
+  eval: true
+embed-resources: true  
+---
+
+```{r}
+#| label: packages
+library(countdown)
+```
+
+## Markdown
+
+Quarto reports support text and code with the text being `Markdown`
+
+*Quarto Markdown = qmd*
+
+## Headers
+
+``` markdown
+# HEADER 1
+
+## HEADER 2
+
+### HEADER 3
+
+#### HEADER 4
+
+##### HEADER 5
+
+###### HEADER 6
+
+#Example no space!
+```
+
+::: {.callout-warning collapse="false" appearance="default" icon="true"}
+## Optional caption (warning)
+
+Make sure that there is a space between the hashes!
+:::
+
+::: notes
+Ask to copy and paste to a report as this won't render in presentation slides - 2 hashes means it's a new slide.
+
+Also show the Visual mode in RStudio for headers
+:::
+
+## Navigating headers
+
+![](img/outline-headers.PNG){fig-alt="Screenshot of Headers Outline as appears in newer versions of RStudio, includes the word Outline" width="250"}
+
+## Headers and chunk table of contents
+
+![](img/rstudio-toc.PNG){fig-alt="Screenshot of RStudio headers and chunks" width="312"}
+
+## Formatting Text
+
+Text formatting uses [markdown](https://www.markdownguide.org/basic-syntax/)
+
+::: columns
+::: {.column width="40%"}
+``` markdown
+**Bold**
+_Italic_
+*Also Italic *
+***Bold and italic***
+```
+:::
+
+::: {.column width="60%"}
+**Bold**\
+*Italic*\
+*Also Italic*\
+***Bold and italic***
+:::
+:::
+
+::: {.callout-caution collapse="false" appearance="default" icon="true"}
+### Underlining is missing
+
+Whilst underlining can be done using using html it's not accessible for everyone and can be confused with hyperlinks so is best avoided.
+:::
+
+## Visual Markdown Editing
+
+![](img/visual-editor-word.PNG){fig-alt="Screenshot of Visual Editor button, written out"}
+
+## Default to Visual Editor
+
+:::: {.columns}
+
+::: {.column width='60%'}
+
+![](img/visual-editor-default.PNG){fig-alt="Screenshot of Tools/Global Options/RMarkdown/Visual with option to make Editor view default"}
+:::
+
+::: {.column width='40%'}
+This is an option that can be set with a Quarto template but also changed in Tools > Global Options > R Markdown > Visual tab
+:::
+
+::::
+
+## Lists
+
+:::: {.columns}
+
+::: {.column width='40%'}
+```markdown
+- Patient (_Unique NHS Number_)
+- Referral (_Not unique_)
+* Contact (_Not unique_)
+* Diagnoses (_Multiple entries_)
+
+These data types occur in various places
+
+1. Mental Health
+1. Outpatients
+1. GPs
+
+```
+:::
+
+::: {.column width='60%'}
+- Patient (_Unique NHS Number_)
+- Referral (_Not unique_)
+* Contact (_Not unique_)
+* Diagnoses (_Multiple entries_)
+
+These data types occur in various places
+
+1. Mental Health
+1. Outpatients
+1. GPs
+:::
+
+::::
+
+## When lists don't work
+
+:::{.callout-warning collapse=false appearance='default' icon=true}
+### Spaces!
+- A return space is needed to separate the list from preceeding text
+- Spaces between the bullet symbol and text are also required
+- Separating lines that are not in bullets can be done with two spaces at the end
+:::
+
+## Examples of lists not working
+
+:::: {.columns}
+
+::: {.column width='50%'}
+```markdown
+Check the spacing:
+- This is right up again the text
+
+-This is missing a space
+*Also missing a space
+
+When there
+are two lines that need to be separated
+
+This is done  
+with two spaces after the last word
+```
+:::
+
+::: {.column width='50%'}
+Check the spacing:
+- This is right up again the text
+
+-This is missing a space
+*Also missing a space
+
+When there
+are two lines that need to be separated
+
+This is done  
+with two spaces after the last word
+:::
+
+::::
+
+## Hyperlink
+
+### Brackets [] and ()
+
+```markdown
+Link to the [course material](https://github.com/nhs-r-community/intro-quarto)
+```
+
+Link to the [course material](https://github.com/nhs-r-community/intro-quarto)
+
+## Cross reference {#cross-ref}
+
+```markdown
+Link within the [same document](#example-slide)
+
+## Example slide hyperlinked to {#example-slide}
+
+```
+Link within the [same document](#example-slide)
+
+## Example slide hyperlinked to {#example-slide visibility="uncounted"}
+
+[Go back](#cross-ref)
+
+## Next Section
