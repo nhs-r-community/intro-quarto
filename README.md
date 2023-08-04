@@ -11,7 +11,18 @@ The links to the published materials is in a suggested order.
 # Part 1
 
 ## Introduction
-[Course agenda and aims](https://nhs-r-community.github.io/intro-quarto/session-intro.html#/title-slide)
+- [Setting up](https://nhs-r-community.github.io/intro-quarto/session-intro.html#/title-slide)  
+- [What's Inside](https://nhs-r-community.github.io/intro-quarto/session-whats-inside.html#/title-slide)  
+- [Text](https://nhs-r-community.github.io/intro-quarto/session-text.html#/title-slide)
+- Images  
+- [Code chunks](https://nhs-r-community.github.io/intro-quarto/session-code-chunks.html#/title-slide)  
+-Inline code  
+- Tabs  
+- Output formats  
+- Parameters  
+- Command line  
+- Loop parameters  
+- Extras
 
 [Break](https://nhs-r-community.github.io/intro-quarto/session-break-slide.html#/title-slide)
 
