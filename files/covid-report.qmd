@@ -7,7 +7,7 @@ format:
     code-tools: true
     embed-resources: true
 params:
-  site: "United_Kingdom"
+  country: "United_Kingdom"
 execute:
   warning: false
   echo: false
@@ -21,12 +21,12 @@ library(tidyverse)
 library(NHSRdatasets)
 
 local_covid <- NHSRdatasets::covid19 |>
-  filter(countries_and_territories == params$site)
+  filter(countries_and_territories == params$country)
 ```
 
 # Overview
 
-`r params$site` has `r local_covid |> summarise(total = n())` records.
+`r params$country` has `r local_covid |> summarise(total = n())` records.
 
 # Over time
 

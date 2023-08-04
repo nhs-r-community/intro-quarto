@@ -14,12 +14,14 @@ format:
     preview-links: true
 execute: 
   echo: false
-  eval: true
+  eval: false
 embed-resources: true  
 ---
 
 ```{r}
 #| label: packages
+#| eval: true
+#| include: false
 library(countdown)
 library(NHSRdatasets)
 library(dplyr)
@@ -27,21 +29,20 @@ library(dplyr)
 
 ## Adding and running code chunks
 
-1. Add a code chunk with ![](img/notebook-insert-chunk.png){fig-alt="Green square button with white c found in RStudio to create a new chunk" width="80"} button 
-1. Keyboard shortcut keys `Ctrl + Alt + i` 
-1. In Visual screen of RStudio type `/` 
+1.  Add a code chunk with ![](img/notebook-insert-chunk.png){fig-alt="Green square button with white c found in RStudio to create a new chunk" width="80"} button
+2.  Keyboard shortcut keys `Ctrl + Alt + i`
+3.  In Visual screen of RStudio type `/`
 
 Running a chunk
 
-1. `Play` an individual chunk with the green triangle
-1. `Render` button to run all chunks and produce the output
-1. Shortcut key to run a chunk `Ctrl + Shift + Enter`
+1.  `Play` an individual chunk with the green triangle
+2.  `Render` button to run all chunks and produce the output
+3.  Shortcut key to run a chunk `Ctrl + Shift + Enter`
 
 ## Default Code chunk
 
 ```{r}
 #| echo: fenced
-#| eval: false
 NHSRdatasets::covid19 |>
   filter(countries_and_territories == "United_Kingdom") |>
   summarise(total = n())
@@ -52,6 +53,7 @@ Let's see the fate of this chunk?
 . . .
 
 ```{r}
+#| eval: true
 NHSRdatasets::covid19 |>
   filter(countries_and_territories == "United_Kingdom") |>
   summarise(total = n())
@@ -59,11 +61,247 @@ NHSRdatasets::covid19 |>
 
 . . .
 
-:::{.callout-note collapse=false appearance='default' icon=true}
+::: {.callout-note collapse="false" appearance="default" icon="true"}
 ## Tibble?
-This is a view of the data that would normally go to the Console when run as a chunk so includes information
-like data types.
+
+This is a view of the data that would normally go to the Console when run as a chunk so includes information like data types `A tibble:...`.
 :::
 
+## Object creating Code chunk
+
+```{r}
+#| echo: fenced
+uk_data <- NHSRdatasets::covid19 |>
+  filter(countries_and_territories == "United_Kingdom") |>
+  summarise(total = n())
+```
+
+What happens here if we create an object?
+
+. . .
+
+```{r}
+#| eval: true
+uk_data <- NHSRdatasets::covid19 |>
+  filter(countries_and_territories == "United_Kingdom") |>
+  summarise(total = n())
+```
+
+. . .
+
+::: {.callout-note collapse="false" appearance="default" icon="true"}
+## Nothing shows!
+
+With `echo: false` there is no code and even with `eval: true` it has run but there is no output to see - why?
+:::
+
+## Showing results
+
+```{r}
+#| echo: fenced
+#| code-line-numbers: "7"
+uk_data <- NHSRdatasets::covid19 |>
+  filter(countries_and_territories == "United_Kingdom") |>
+  summarise(total = n())
+
+uk_data
+```
+
+Can we now see the results?
+
+. . .
+
+```{r}
+#| eval: true
+uk_data <- NHSRdatasets::covid19 |>
+  filter(countries_and_territories == "United_Kingdom") |>
+  summarise(total = n())
+
+uk_data
+```
+
+. . .
+
+::: {.callout-note collapse="false" appearance="default" icon="true"}
+## Metadata is still showing!
+
+The information about the table is still showing (`A tibble:...` )
+:::
+
+## Using packages for tables
+
+Tables are the output of data (not data frames which are data object types)
+
+```{r}
+#| echo: true
+#| eval: true
+
+library(gt)
+
+gt(NHSRdatasets::covid19 |> head(5))
+
+```
+
+## Controlling output
+
+```{r}
+#| echo: fenced
+
+glimpse(NHSRdatasets::covid19)
+```
+
+::: {.callout-note collapse="false" appearance="default" icon="true"}
+## Default option
+
+When nothing is set all options are true.
+
+Code, messages, warnings are shown and the code is "evaluated" (it breaks if there is a bug).
+:::
+
+. . .
+
+```{r}
+#| eval: true
+#| echo: true
+
+glimpse(NHSRdatasets::covid19)
+
+```
+
+## echo
+
+```{{r}}
+#| echo: false
+
+glimpse(NHSRdatasets::covid19)
+```
+
+::: {.callout-note collapse="false" appearance="default" icon="true"}
+## #\| echo
+
+Echo shows the code and when it's set to `false` it's hidden
+:::
+
+. . .
+
+```{r}
+#| eval: true
+
+glimpse(NHSRdatasets::covid19)
+
+```
+
+## eval
+
+```{r}
+#| echo: fenced
+#| eval: false
+
+glimpse(NHSRdatasets::covid19)
+```
+
+::: {.callout-note collapse="false" appearance="default" icon="true"}
+## #\| eval
+
+`eval` is short for evaluate which means the code is run. If there is a bug the report won't run.
+:::
+
+. . .
+
+```{r}
+#| echo: true
+glimpse(NHSRdatasets::covid19)
+
+```
+
+## include
+
+```{{r}}
+#| include: false
+
+glimpse(NHSRdatasets::covid19)
+```
+
+::: {.callout-note collapse="false" appearance="default" icon="true"}
+## #\| include
+
+`include` default is true and when set to false will prevent any output (code or results) from being included in the output.
+
+The code is still run and available to subsequent chunks.
+:::
+
+## Warning
+
+![](https://www.tidyverse.org/images/tidyverse_1.2.0/tidyverse_1-2-0_pkg_load.gif){fig-alt="Gif of RStudio console with library(tidyverse) being typed, run and the information on what is loaded is shown."}
+
+## Hiding warnings
+
+This can be done in chunks:
+
+```{r}
+#| echo: fenced
+#| warning: false
+
+library(tidyverse)
+```
+
+## Chunk option summary
+
+More details are online in the [Quarto documentation](https://quarto.org/docs/reference/cells/cells-knitr.html)
+
+::: {.incremental}
+- RMarkdown formats can also be used in Quarto, it's backwards compatible
+- Options are started with `#|` which has no short cut key currently...
+- ... but after the first line a return copies this format
+- Chunk options in RStudio Quarto have auto fill prompts
+:::
+
+## Naming chunk labels 
+
+```{r}
+#| echo: fenced
+#| label: peek
+
+glimpse(NHSRdatasets::covid19)
+```
+
+:::{.callout-warning collapse=false appearance='default' icon=true}
+## Don't repeat labels!
+Duplicating chunk labels will break the report.
+:::
+
+. . . 
+
+```markdown
+processing file: covid-report.qmd
+Error in parse_block(g[-1], g[1], params.src, markdown_mode) : 
+  Duplicate chunk label 'covid-chart', which has been used for the chunk:
+library(tidyverse)
+library(NHSRdatasets)
+
+local_covid <- NHSRdatasets::covid19 |>
+  filter(countries_and_territories == params$site)
+Calls: .main ... process_file -> split_file -> lapply -> FUN -> parse_block
+Execution halted
+```
+
+## Your turn
+
+In the report `covid-report.qmd`:
+
+- Name the two code chunks using `label` in the chunk options
+
+
+## Global settings
+
+Chunk options can be set once at the YAML and to apply the whole report.
+
+``` markdown
+execute: 
+  echo: false
+  eval: false
+  message: false
+  warning: false
+```
 
 ## Next Section
