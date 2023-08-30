@@ -1,0 +1,293 @@
+---
+title: "Including images into Quarto"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session - Images"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute: 
+  echo: false
+  eval: false
+embed-resources: true  
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+#| label: packages
+#| eval: true
+#| include: false
+library(countdown)
+library(knitr)
+```
+
+## Adding images using markdown
+
+The NHS-R Community logo taken from the GitHub repository directly
+
+``` markdown
+![](https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg)
+```
+
+. . .
+
+![](https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg)
+
+## Adding images using html
+
+``` markdown
+<a href='https://nhsrcommunity.com/'><img src='https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg' align="right" height="80" /></a>
+```
+
+. . .
+
+<a alt="NHS-R Community's logo" href='https://nhsrcommunity.com/'><img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg"/></a>
+
+## Adding images using `{knitr}`
+
+```{r}
+#| echo: true
+knitr::include_graphics("img/purrr_cat.png")
+```
+
+. . .
+
+```{r}
+#| eval: true
+knitr::include_graphics("img/purrr_cat.png")
+```
+
+## Adding images using the Visual view in RStudio
+
+The Visual editor is great for WSIWYG (what you see is what you get) but also really useful for those who prefer the Markdown coding as the wizards give prompts:
+
+::: incremental
+-   In the Visual view click on the picture image in the tool bar before `Format` and `Insert`
+-   Browse to the image you need
+-   Then go back to Source to look at what code is generated
+:::
+
+## Navigating folders
+
+In markdown linking to an image in the same area as the .qmd file is straightforward, as is going to a subfolder
+
+``` markdown
+![](img/bakers_2.png)
+```
+
+. . .
+
+A subfolder from the main root needs `../`
+
+``` markdown
+![](../images/bakers_3.png)
+```
+
+. . .
+
+::: {.callout-note collapse="false" appearance="default" icon="true"}
+## Useful things to know
+
+-   When typing the names of the folder, pause and use Tab to give you options to choose and save typing
+-   Putting the `/` after a folder will show what's in that folder
+-   But not after the `../` code!
+:::
+
+## Let's try this together!
+
+1.  Open `images_report/example_report.qmd
+2.  In the source view we'll link to an image in the same folder
+3.  Then link to an image in a subfolder
+4.  Finishing with a link to an image in a subfolder from the main root
+
+::: {.callout-tip collapse="false" appearance="default" icon="true"}
+## Some helpful tips
+
+-   Add `embed-resources: true` to the YAML to remove the generated folder
+-   The code we are testing is on the previous slide...
+:::
+
+::: notes
+Same folder ![](bakers_1.png) Sub folder ![](img/bakers_2.png) Folder from subfolder from the main root ![](../images/bakers_3.png)
+:::
+
+Note that autofills. To force a prompt to autofill use `tab`
+
+Also if Global Options/RMarkdown/Show output inline for all R Markdown... is ticked the picture will automatically appear in the script. To remove untick but also requires a restart `Ctrl + Shift + F10`
+
+## Seeing the image in the script
+
+Using the drop down menu with a cog, found next to the blue arrow with `Render`
+
+> Preview Images and Equations
+
+will not be ticked, selecting this will allow Quarto to show the image in the report script.
+
+## Alt text
+
+**Alt**ernative **text** is predominately for people using screen readers to explain images but is very useful when images break:
+
+. . .
+
+File should be `baker_3.png`
+
+``` markdown
+![](img/bakers3.png){fig-alt="Three green fuzzy monsters in chef hats stand on top of one another, with the one on top pouring flour into a mixing bowl."}
+```
+
+. . .
+
+Rendered image doesn't work but the text shows
+
+![](img/bakers3.png){fig-alt="Three green fuzzy monsters in chef hats stand on top of one another, with the one on top pouring flour into a mixing bowl."}
+
+## Alt text using Markdown
+
+Between `{}` that comes after the link:
+
+``` markdown
+![](img/bakers_3.png){fig-alt="Three green fuzzy monsters in chef hats stand on top of one another, with the one on top pouring flour into a mixing bowl."}
+```
+
+. . .
+
+![](img/bakers_3.png){fig-alt="Three green fuzzy monsters in chef hats stand on top of one another, with the one on top pouring flour into a mixing bowl."}
+
+## Alt text using HTML
+
+Within the \<\> and space between sections
+
+``` markdown
+<div id="bakeoff">
+  <img src="img/bakers_3.png" alt="Alt text:Three green fuzzy monsters in chef hats stand on top of one another, with the one on top pouring flour into a mixing bowl.">
+</div> 
+```
+
+. . .
+
+::: {#bakeoff}
+<img src="img/bakers_3.png" alt="Alt text:Three green fuzzy monsters in chef hats stand on top of one another, with the one on top pouring flour into a mixing bowl."/>
+:::
+
+## Alt text using `{knitr}`
+
+Code used in R chunks
+
+```{r}
+#| echo: fenced
+#| eval: false
+#| fig-alt: "Three green fuzzy monsters in chef hats stand on top of one another, with the one on top pouring flour into a mixing bowl."
+
+knitr::include_graphics("img/bakers_3.png")
+
+```
+
+. . .
+
+```{r}
+#| eval: true
+#| fig-alt: "Three green fuzzy monsters in chef hats stand on top of one another, with the one on top pouring flour into a mixing bowl."
+
+knitr::include_graphics("img/bakers_3.png")
+
+```
+
+## Resizing images
+
+Markdown doesn't support resizing and html requires knowledge of a different language but using {knitr} and Quarto options:
+
+```{r}
+#| echo: fenced
+#| out-width: "50%"
+
+knitr::include_graphics("img/bakers_3.png")
+```
+
+. . .
+
+
+```{r}
+#| eval: true
+#| out-width: "50%"
+
+knitr::include_graphics("img/bakers_3.png")
+```
+
+## Centre images
+
+And can change where the image appears:
+
+
+```{r}
+#| echo: fenced
+#| out-width: "30%"
+#| fig-align: center
+
+knitr::include_graphics("img/bakers_3.png")
+```
+
+. . .
+
+
+```{r}
+#| eval: true
+#| out-width: "30%"
+#| fig-align: center
+
+knitr::include_graphics("img/bakers_3.png")
+```
+
+## Hyperlinks in markdown
+
+Using the `[]` for the words:
+
+``` markdown
+Sign up to free events through the [NHS-R Community](https://nhsrcommunity.com/) website
+```
+
+. . .
+
+Sign up to free events through the [NHS-R Community](https://nhsrcommunity.com/) website
+
+## Quiz - 1
+
+How do you add headers in Markdown?
+
+`! Header`
+
+`- Header`
+
+`# Header`
+
+`1. Header`
+
+. . .
+
+Answer: Headers is `#` hash
+
+## Quiz - 2
+
+What about lists? Bulleted? Numbered?
+
+`! Item 1`
+
+`- Item 1`
+
+`# Item 1`
+
+`1. Item 1`
+
+. . .
+
+Lists are `-` for bullets and `1.` for numbered
+
+## Next Section {.smaller}
+
+Artwork from Allison Horst "Illustrations from Hadley Wickham's ACM talk"The Joy of Functional Programming (for Data Science)." https://allisonhorst.com/wickham-tidy-bakers
