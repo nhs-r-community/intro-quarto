@@ -1,0 +1,85 @@
+---
+title: "Code within text"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session - inline code"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute: 
+  echo: false
+  eval: true
+embed-resources: true  
+---
+
+```{r}
+#| label: packages
+#| eval: true
+#| include: false
+library(NHSRdatasets)
+library(dplyr)
+library(lubridate)
+
+```
+
+## Inline text
+
+A code chunk: 
+
+```{r}
+#| echo: fenced
+NHSRdatasets::covid19 |>
+  filter(countries_and_territories == "United_Kingdom") |>
+  summarise(total = n())
+```
+
+As it would appear in a sentence:
+
+There are **`r NHSRdatasets::covid19 |> filter(countries_and_territories == "United_Kingdom") |> summarise(total = n())`** records available for United Kingdom in the Covid19 dataset from {NHSRdatasets}.
+
+## Inline text formatting
+
+Code requires no breaks in lines:
+
+``` `r knitr::inline_expr('NHSRdatasets::covid19 |> filter(countries_and_territories == "United_Kingdom") |> summarise(total = n())')` ```
+
+. . . 
+
+:::{.callout-note collapse=false appearance='default' icon=true}
+## Seeing the output 
+With the cursor in the inline text use `Ctrl + Enter` to run the code to get a sneak preview of the output...
+
+... and test it works!
+:::
+
+## Avoid long inline code
+
+The example is very long code which makes it hard to debug when inline so the approach should be to create an object:
+
+```{r}
+#| echo: fenced
+total_records <- NHSRdatasets::covid19 |>
+  filter(countries_and_territories == "United_Kingdom") |>
+  summarise(total = n())
+```
+
+. . .
+
+Then refer to that inline:
+
+``` `r knitr::inline_expr('total_records')` ```
+
+:::{.callout-tip collapse=false appearance='default' icon=true}
+## The `pull()` function
+Sometimes the code you produce won't show as part of a sentence because it's a data frame and needs to be a single vector for inline. 
+To extract a single column pipe (`|>`) to `pull()` at the end of your code
+
+:::
+
+## Next Section
