@@ -1,0 +1,95 @@
+---
+title: "Output formats"
+title-slide-attributes: 
+  data-background-color: "#43464B"
+subtitle: "Session - Creating things from Quarto"
+author: "Zoë Turner"
+format:
+  revealjs:
+    theme: [default, nhsr-quarto.scss]
+    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
+    code-link: true
+    css: nhsr-quarto.scss
+    self-contained: true
+    preview-links: true
+execute: 
+  echo: false
+  eval: false
+embed-resources: true  
+---
+
+## Wizard
+
+Using the wizard in RStudio gives a selection of output possibilities:
+
+::: {.incremental}
+- html (default and very accessible as well as interactive)
+- word
+- pdf
+:::
+
+A full list is on the [Quarto documentation website](https://quarto.org/docs/output-formats/all-formats.html) with links to the code to use in the YAML
+
+## Rendering to multiple outputs
+
+Whilst it's possible to list several outputs in the YAML:
+
+```markdown
+format: 
+  html:
+    toc: true
+  docx:
+    toc: true
+```
+only the first will render.
+
+## Using {quarto} package
+
+The {quarto} package (which is different to Quarto which is in RStudio) can render to different formats:
+
+```{r}
+#| echo: fenced
+
+quarto::quarto_render(output_format = "docx")
+```
+
+:::{.callout-warning collapse=false appearance='default' icon=true}
+## Quarto project
+- This function prompts for the project to be a Quarto project
+- In RStudio this can be set up from the beginning with `File > New Project... > Quarto project`
+- An additional file called `_quarto.yml` is generated with code:
+```markdown
+project:
+  title: "intro-quarto"
+```
+:::
+
+## And all formats
+
+Again, with the requirement of a file called `_quarto.yml` including the lines:
+
+```markdown
+project:
+  title: "intro-quarto"
+```
+
+The following can generate all outputs:
+
+```{r}
+#| echo: fenced
+
+quarto::quarto_render(output_format = "all")
+```
+
+## Run any file
+
+This code was run when the file was open but it's possible to Render any Quarto file:
+
+```{r}
+#| echo: fenced
+
+quarto::quarto_render("images_report/example_report.qmd")
+```
+
+
+## Next Section
