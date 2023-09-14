@@ -3,19 +3,6 @@ title: "Including images into Quarto"
 title-slide-attributes: 
   data-background-color: "#43464B"
 subtitle: "Session - Images"
-author: "Zoë Turner"
-format:
-  revealjs:
-    theme: [default, nhsr-quarto.scss]
-    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
-    code-link: true
-    css: nhsr-quarto.scss
-    self-contained: true
-    preview-links: true
-execute: 
-  echo: false
-  eval: false
-embed-resources: true  
 editor_options: 
   chunk_output_type: inline
 ---
