@@ -1,21 +1,6 @@
 ---
 title: "Understanding Code Chunks"
-title-slide-attributes: 
-  data-background-color: "#43464B"
 subtitle: "Session - Code Chunks"
-author: "Zoë Turner"
-format:
-  revealjs:
-    theme: [default, nhsr-quarto.scss]
-    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
-    code-link: true
-    css: nhsr-quarto.scss
-    self-contained: true
-    preview-links: true
-execute: 
-  echo: false
-  eval: false
-embed-resources: true  
 ---
 
 ```{r}
@@ -33,13 +18,15 @@ library(dplyr)
 2.  Keyboard shortcut keys `Ctrl + Alt + i`
 3.  In Visual screen of RStudio type `/`
 
+. . .
+
 Running a chunk
 
 1.  `Play` an individual chunk with the green triangle
 2.  `Render` button to run all chunks and produce the output
 3.  Shortcut key to run a chunk `Ctrl + Shift + Enter`
 
-## Default Code chunk
+## Default Code chunk settings
 
 ```{r}
 #| echo: fenced
@@ -48,7 +35,7 @@ NHSRdatasets::covid19 |>
   summarise(total = n())
 ```
 
-Let's see the fate of this chunk?
+Let's see the fate of this chunk...
 
 . . .
 
@@ -64,7 +51,7 @@ NHSRdatasets::covid19 |>
 ::: {.callout-note collapse="false" appearance="default" icon="true"}
 ## Tibble?
 
-This is a view of the data that would normally go to the Console when run as a chunk so includes information like data types `A tibble:...`.
+This is a view of the data that would normally go to the Console when run as a chunk so includes information like data types (`A tibble:...`).
 :::
 
 ## Object creating Code chunk
@@ -132,6 +119,8 @@ The information about the table is still showing (`A tibble:...` )
 
 Tables are the output of data (not data frames which are data object types)
 
+. . .
+
 ```{r}
 #| echo: true
 #| eval: true
@@ -179,7 +168,7 @@ glimpse(NHSRdatasets::covid19)
 ::: {.callout-note collapse="false" appearance="default" icon="true"}
 ## #\| echo
 
-Echo shows the code and when it's set to `false` it's hidden
+Echo shows the code and when it's set to `false` code is hidden
 :::
 
 . . .
@@ -249,14 +238,14 @@ library(tidyverse)
 
 More details are online in the [Quarto documentation](https://quarto.org/docs/reference/cells/cells-knitr.html)
 
-::: {.incremental}
-- RMarkdown formats can also be used in Quarto, it's backwards compatible
-- Options are started with `#|` which has no short cut key currently...
-- ... but after the first line a return copies this format
-- Chunk options in RStudio Quarto have auto fill prompts
+::: incremental
+-   RMarkdown formats can also be used in Quarto, it's backwards compatible
+-   Options are started with `#|` which has no short cut key currently...
+-   ... but after the first line a return copies this format
+-   Chunk options in RStudio Quarto have auto fill prompts
 :::
 
-## Naming chunk labels 
+## Naming chunk labels
 
 ```{r}
 #| echo: fenced
@@ -265,14 +254,15 @@ More details are online in the [Quarto documentation](https://quarto.org/docs/re
 glimpse(NHSRdatasets::covid19)
 ```
 
-:::{.callout-warning collapse=false appearance='default' icon=true}
+::: {.callout-warning collapse="false" appearance="default" icon="true"}
 ## Don't repeat labels!
+
 Duplicating chunk labels will break the report.
 :::
 
-. . . 
+. . .
 
-```markdown
+``` markdown
 processing file: covid-report.qmd
 Error in parse_block(g[-1], g[1], params.src, markdown_mode) : 
   Duplicate chunk label 'covid-chart', which has been used for the chunk:
@@ -285,12 +275,26 @@ Calls: .main ... process_file -> split_file -> lapply -> FUN -> parse_block
 Execution halted
 ```
 
-## Your turn
+## Your turn!
 
-In the report `covid-report.qmd`:
+In the report `my-report.qmd`:
 
 - Name the two code chunks using `label` in the chunk options
+- Render the report
 
+```{r}
+#| echo: false
+#| eval: true
+countdown::countdown(minutes = 8,
+                     color_border = "#005EB8",
+                     color_text = "#005EB8",
+                     color_running_text = "white",
+                     color_running_background = "#005EB8",
+                     color_finished_text = "#005EB8",
+                     color_finished_background = "white",
+                     margin = "0.9em",
+                     font_size = "2em")
+```
 
 ## Global settings
 

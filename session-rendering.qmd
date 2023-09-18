@@ -1,0 +1,86 @@
+---
+title: "Rendering multiple reports"
+subtitle: "Session - using Quarto Projects"
+---
+
+```{r}
+#| label: packages
+#| eval: true
+#| echo: false
+#| include: false
+library(quarto)
+
+```
+
+## Rendering as you save
+
+Using the button on the RStudio panel (under the tabs)
+
+Whenever you save this updates the document
+
+. . . 
+
+:::{.callout-tip collapse=false appearance='default' icon=true}
+## Combining features in RStudio
+- It can be helpful to change the settings in the cog (next to `Render`) to `Preview in View Pane` in combination with the `Render on Save`
+- This means any changes can be seen without leaving RStudio
+:::
+
+## Rendering from the R Console
+
+Using the {quarto} package the following renders *everything* in the project
+
+```{r}
+#| echo: fenced
+quarto::quarto_render()
+```
+
+. . .
+
+:::{.callout-warning collapse=false appearance='default' icon=true}
+## Quarto project
+- This command will only work if the project is a Quarto Project
+- This requires a file called `_quarto.yml` and can start off with just the code:
+``` markdown
+project:
+  title: "intro-quarto"
+```
+:::
+
+## Rendering from the Terminal
+
+Where the prompt is `$` commands can be used for `git` and also `quarto`:
+
+```markdown
+quarto render
+```
+## Adding more to the `_quarto.yml`
+
+If there are several files using the same YAML information this can be put into the `_quarto.yml` file so it only has to be written once:
+
+```markdown
+project:
+  title: "intro-quarto"
+author: "Zoë Turner"
+execute: 
+  echo: false
+  eval: false
+embed-resources: true
+```
+
+## Excluding files
+
+The `_quarto.yml` can be used to list specific files to render or, alternatively, have files to exclude:
+
+```markdown
+project:
+  title: "intro-quarto"
+  render: 
+    - "*.qmd"
+    - "!*.md"
+    - "!.files/"
+```
+
+This includes anything with a `.qmd` ending but not a `.md` and not for files that are in a folder called `files/`
+
+## Next Section 

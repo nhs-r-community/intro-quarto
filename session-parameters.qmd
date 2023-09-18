@@ -1,0 +1,138 @@
+---
+title: "Parameters"
+subtitle: "Session - running reports from different inputs"
+execute: 
+  echo: fenced
+---
+
+```{r}
+#| label: packages
+#| eval: true
+#| echo: false
+#| include: false
+library(quarto)
+
+```
+
+## Using {quarto}
+
+Writing out the code:
+
+```{r}
+quarto::quarto_render("my_report.qmd", 
+                      execute_params = list(country = "United_Kingdom"),
+                      output_format = "html"
+)
+ 
+```
+
+. . .
+
+On the Terminal:
+
+```markdown
+quarto render my_report.qmd -P country:"United_Kingdom" --to html
+```
+
+## More than one parameter
+
+```{r}
+quarto::quarto_render("my_report.qmd", 
+                      execute_params = list(country = "United_Kingdom",
+                                            month_start = "2020-01-01",
+                                            month_end = "2020-01-01"),
+                      output_format = "html"
+)
+ 
+```
+
+. . .
+
+On the Terminal:
+
+```markdown
+quarto render my_report.qmd -P country:"United_Kingdom" -P month_start:"2020-01-01" -P month_end:"2020-01-01" --to html
+```
+
+## Rendering multiple reports
+
+The parameters have been for just one report but if we need to run several in one go we need to a function and a loop in R.
+
+::: {.incremental}
+- A function - is a block of code which only runs when its called (Source: [W3Schools](https://www.w3schools.com/r/r_functions.asp))
+- A loop - is used for repeating code (and can be used with functions)
+:::
+
+## A function
+
+Starts with a name: `run_docs`
+
+```{r}
+run_docs <- function() {
+  }
+```
+
+. . .
+
+Takes inputs (called parameters/arguments)
+
+```{r}
+run_docs <- function(country, month_start) {
+
+  }
+
+```
+
+. . .
+
+Call the {quarto} package which we've used before
+
+```{r}
+run_docs <- function(country, month_start) {
+  quarto::quarto_render(
+    "my_report.qmd",
+    output_format = "html",
+    execute_params = list(country = country, 
+                          month_start = month_start)
+  )
+  }
+```
+
+## Naming the files
+
+In this function we can also use the parameters to create distinct file names so files are created like `Ireland 2020-01-01.html`
+
+```{r}
+#| code-line-numbers: 9
+run_docs <- function(country, month_begin) {
+  quarto::quarto_render(
+    "my_report.qmd",
+    output_format = "html",
+    execute_params = list(country = country, 
+                          month_start = month_begin),
+    output_file = glue::glue("{country} {month_begin}.html") # creates the file name
+  )
+}
+```
+
+## Using the function
+
+A function can be used individually
+
+```{r}
+run_docs("New_Zealand", "2020-01-01")
+```
+
+. . .
+
+And for many (in a loop)
+
+```{r}
+purrr::map2(c("New_Zealand", "United_Kingdom"), "2020-01-01", run_docs)
+```
+
+## Next Section {.smaller}
+
+Credit: Blog by Meghan Hall, [Tips for Custom Parameterized PDFs in Quarto](https://meghan.rbind.io/blog/quarto-pdfs/#parameterized-reports-in-r-and-quarto)
+
+Read more in the blog from Mike Mahoney, [How to use Quarto for Parametized Reporting](https://www.mm218.dev/posts/2022-08-04-how-to-use-quarto-for-parameterized-reporting/#parameterized-reports) including Parametized SQL

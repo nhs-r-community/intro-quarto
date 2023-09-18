@@ -1,21 +1,8 @@
 ---
 title: "Introduction to Quarto"
-title-slide-attributes: 
-  data-background-color: "#43464B"
 subtitle: "Session - Introduction"
-author: "Zoë Turner"
-format:
-  revealjs:
-    theme: [default, nhsr-quarto.scss]
-    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
-    code-link: true
-    css: nhsr-quarto.scss
-    self-contained: true
-    preview-links: true
 execute: 
-  echo: false
   eval: true
-embed-resources: true  
 ---
 
 ```{r}
@@ -29,15 +16,16 @@ library(countdown)
 Chapter overview
 
 ::: {.fragment .fade-in}
-- Getting set up 
+- Getting set up  
 - What's inside?  
+- Source and visual views in RStudio
 :::
 ::: {.fragment .fade-in}
 --------- Break -----------  
 :::
 ::: {.fragment .fade-in}
-- Text 
-- Images 
+- Text  
+- Images  
 - Code chunks  
 :::
 
@@ -50,16 +38,15 @@ Chapter overview
 ::: {.fragment .fade-in}
 - Inline code 
 - Tabs 
+- Output Formats
 :::
 ::: {.fragment .fade-in}
 --------- Break -----------
 :::
 ::: {.fragment .fade-in}
-- Output Formats
+- Features of YAML
+- Rendering
 - Parameters
-- Command Line
-- Loop reports
-- Extras
 :::
 
 ## Course Aims
@@ -70,7 +57,7 @@ Chapter overview
 -   Show the potential for using Quarto as a work flow for any analysis project
 :::
 
-## What is Quarto - what do you think?
+## What is Quarto? Is it...
 
 ::: incremental
 - "An open-source scientific and technical publishing system"
@@ -110,11 +97,6 @@ That everyone is:
 
 * set up on RStudio Cloud (own laptops are fine to use instead with the latest RStudio)
 
-## Also note...
-
-[TODO]
-Code doesn't copy to MS Teams with the correct indentations but code can be copied from the [slides](),
-
 :::{.callout-important collapse=false appearance='default' icon=true}
 ## Quarto the CLI command line interface (important)
 - Quarto is an [addition](https://quarto.org/docs/get-started/) to the RStudio IDE
@@ -125,18 +107,19 @@ Code doesn't copy to MS Teams with the correct indentations but code can be copi
 ## Together we'll open a Quarto template
 
 * Go to `File/New File/Quarto document...`
-* A wizard will prompt a Title and Author
-* **Render** this document and save the file when the wizard appears
+* A wizard will prompt a Title and Author - select `Create`
+* **Render** this document to create the html output using the blue arrow to the right
+* This will prompt a name to save the file
 
 :::{.callout-warning collapse=false appearance='default' icon=true}
 ## File permissions (warning)
 - the file must have access to write/save files to the same folder that the `.qmd` is in
-- it will run create supporting files and folders and then clear them away
+- it will create supporting files and folders and then clear them away
 :::
 
 ## Your turn
 
-[TODO] Look at the source, then **Render** to HTML
+Open the file `my-report.qmd`, then **Render** to HTML
 
 Try to identify these parts in the source and the output:
 
@@ -169,17 +152,15 @@ countdown::countdown(minutes = 2,
 
 ::::
 
-## Basic anatomy I
+## Basic anatomy
 
-[TODO]
-We look at the *source* anatomy for `qmd` together:
+We look at the *underlying source* anatomy for `qmd` together:
 
-1. The **metadata**
-1. The **text** 
-1. The **code**
-
-### Basic anatomy II
-
-1. The **output**
+::: {.incremental}
+1. The **metadata** called a YAML (yet another markup language)
+1. The **text** which supports markdown 
+1. The **code** for this course we'll use R but this could be other languages
+1. The **output** this is an html report
+:::
 
 ## End session

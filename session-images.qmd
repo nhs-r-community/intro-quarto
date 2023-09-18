@@ -1,21 +1,6 @@
 ---
 title: "Including images into Quarto"
-title-slide-attributes: 
-  data-background-color: "#43464B"
 subtitle: "Session - Images"
-author: "Zoë Turner"
-format:
-  revealjs:
-    theme: [default, nhsr-quarto.scss]
-    logo: https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg
-    code-link: true
-    css: nhsr-quarto.scss
-    self-contained: true
-    preview-links: true
-execute: 
-  echo: false
-  eval: false
-embed-resources: true  
 editor_options: 
   chunk_output_type: inline
 ---
@@ -50,7 +35,7 @@ The NHS-R Community logo taken from the GitHub repository directly
 
 <a alt="NHS-R Community's logo" href='https://nhsrcommunity.com/'><img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg"/></a>
 
-## Adding images using `{knitr}`
+## Adding images using `{knitr}` and code chunks
 
 ```{r}
 #| echo: true
@@ -64,19 +49,33 @@ knitr::include_graphics("img/purrr_cat.png")
 knitr::include_graphics("img/purrr_cat.png")
 ```
 
-## Adding images using the Visual view in RStudio
+## Your turn - add an image in Visual view in RStudio
 
-The Visual editor is great for WSIWYG (what you see is what you get) but also really useful for those who prefer the Markdown coding as the wizards give prompts:
+The `Visual` editor is great for WSIWYG (what you see is what you get) and the code that's generated can be seen in `Source`:
 
 ::: incremental
--   In the Visual view click on the picture image in the tool bar before `Format` and `Insert`
--   Browse to the image you need
--   Then go back to Source to look at what code is generated
+- Open file `example_report.qmd` in folder `images_report/`
+-   In the Visual view go to the bottom of the report and type `/` then image
+-   Select `bakers1.png`
+-   Look at the code in `Source`
 :::
+
+```{r}
+#| eval: true
+countdown::countdown(minutes = 8,
+                     color_border = "#005EB8",
+                     color_text = "#005EB8",
+                     color_running_text = "white",
+                     color_running_background = "#005EB8",
+                     color_finished_text = "#005EB8",
+                     color_finished_background = "white",
+                     margin = "0.9em",
+                     font_size = "2em")
+```
 
 ## Navigating folders
 
-In markdown linking to an image in the same area as the .qmd file is straightforward, as is going to a subfolder
+In markdown (`Source` view) linking to an image in the same area as the `.qmd` file is straightforward, as is going to a subfolder
 
 ``` markdown
 ![](img/bakers_2.png)
@@ -97,30 +96,27 @@ A subfolder from the main root needs `../`
 
 -   When typing the names of the folder, pause and use Tab to give you options to choose and save typing
 -   Putting the `/` after a folder will show what's in that folder
--   But not after the `../` code!
 :::
 
 ## Let's try this together!
 
 1.  Open `images_report/example_report.qmd
-2.  In the source view we'll link to an image in the same folder
-3.  Then link to an image in a subfolder
+2.  In the `Source` view we'll link to an image in the same folder by putting the cursor between `()` and clicking Tab
+3.  Then link to an image in a subfolder by putting the cursor after the `/` and then Tab
 4.  Finishing with a link to an image in a subfolder from the main root
-
-::: {.callout-tip collapse="false" appearance="default" icon="true"}
-## Some helpful tips
-
--   Add `embed-resources: true` to the YAML to remove the generated folder
--   The code we are testing is on the previous slide...
-:::
 
 ::: notes
 Same folder ![](bakers_1.png) Sub folder ![](img/bakers_2.png) Folder from subfolder from the main root ![](../images/bakers_3.png)
 :::
 
-Note that autofills. To force a prompt to autofill use `tab`
+. . .
 
-Also if Global Options/RMarkdown/Show output inline for all R Markdown... is ticked the picture will automatically appear in the script. To remove untick but also requires a restart `Ctrl + Shift + F10`
+:::{.callout-tip collapse=false appearance='default' icon=true}
+## Show inline
+- If Global Options > RMarkdown > Show output inline for all R Markdown... is ticked the picture will automatically appear in the script. 
+- To remove untick but may also requires a RStudio restart `Ctrl + Shift + F10`
+:::
+
 
 ## Seeing the image in the script
 
@@ -136,7 +132,7 @@ will not be ticked, selecting this will allow Quarto to show the image in the re
 
 . . .
 
-File should be `baker_3.png`
+Code should be `![](baker_3.png)`
 
 ``` markdown
 ![](img/bakers3.png){fig-alt="Three green fuzzy monsters in chef hats stand on top of one another, with the one on top pouring flour into a mixing bowl."}
@@ -150,7 +146,7 @@ Rendered image doesn't work but the text shows
 
 ## Alt text using Markdown
 
-Between `{}` that comes after the link:
+Text appears between `{}` that comes after the link:
 
 ``` markdown
 ![](img/bakers_3.png){fig-alt="Three green fuzzy monsters in chef hats stand on top of one another, with the one on top pouring flour into a mixing bowl."}
@@ -162,7 +158,7 @@ Between `{}` that comes after the link:
 
 ## Alt text using HTML
 
-Within the \<\> and space between sections
+Appears after `alt=""` code:
 
 ``` markdown
 <div id="bakeoff">
@@ -222,7 +218,7 @@ knitr::include_graphics("img/bakers_3.png")
 
 ## Centre images
 
-And can change where the image appears:
+{knitr} in a code chunk can change where the image appears on the page:
 
 
 ```{r}
@@ -244,17 +240,6 @@ knitr::include_graphics("img/bakers_3.png")
 knitr::include_graphics("img/bakers_3.png")
 ```
 
-## Hyperlinks in markdown
-
-Using the `[]` for the words:
-
-``` markdown
-Sign up to free events through the [NHS-R Community](https://nhsrcommunity.com/) website
-```
-
-. . .
-
-Sign up to free events through the [NHS-R Community](https://nhsrcommunity.com/) website
 
 ## Quiz - 1
 

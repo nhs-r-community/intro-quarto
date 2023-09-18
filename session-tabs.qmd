@@ -1,0 +1,85 @@
+---
+title: "Tabset panels"
+subtitle: "Session - tabs"
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+#| label: packages
+#| eval: true
+#| include: false
+library(countdown)
+library(knitr)
+```
+
+## Breaking up long reports in HTML
+
+::: {.incremental}
+- Allows users to toggle between sections and breakup very long HTML
+- Cannot be used in reports that are static like Word or pdf
+:::
+
+
+## Tabsets rely upon on few features
+
+As a reminder, in markdown there is a hierarchy of hashes for tabs
+
+```markdown
+# Country analysis
+## Overview
+## Covid cases
+```
+
+. . .
+
+And Quarto specific code is denoted by `:::` at the start and end of code to be affected. 
+
+For example 
+
+```markdown
+::: {.panel-tabset}
+# Country analysis
+## Overview
+## Covid cases
+:::
+```
+
+## Let's try this
+
+First of all we'll install a GitHub package which changes RStudio to have an add in menu:
+
+```{r}
+#| echo: true
+
+# install.packages("remotes")  # if not yet installed
+remotes::install_github("matt-dray/quartostamp")
+```
+
+. . .
+
+Then we'll select from `## Overview` to the very end and select `Insert Tabset` from the Addins menu (under Help) and Render
+
+. . .
+
+:::{.callout-tip collapse=false appearance='default' icon=true}
+## Tip! {quartostamp} can be used with or without text
+- To get the template code select from the add in
+- But where you've already written the text, highlight before selecting the add-in
+:::
+
+## Styling tabs
+
+It's possible to change the view of the tabs by adding `.nav-pills`:
+
+. . .
+
+```markdown
+::: {.panel-tabset .nav-pills}
+# Country analysis
+## Overview
+## Covid cases
+:::
+```
+## Next Section 
+

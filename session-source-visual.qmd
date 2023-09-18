@@ -1,0 +1,83 @@
+---
+title: "Views of Quarto in RStudio"
+subtitle: "Session - Source and Visual views in RStudio"
+execute: 
+  eval: true
+---
+
+## Two views of the Quarto report
+
+RStudio offers a code markdown view through `Source` or a WYSIWYG (what you see is what you get) view through `Visual`
+
+. . .
+
+`Visual` can be selected from the template wizard and the code:
+
+```markdown
+editor: visual
+```
+
+will appear in the YAML so the .qmd will always open in Visual mode. 
+
+. . .
+
+:::{.callout-tip collapse=false appearance='default' icon=true}
+## YAML intellisense
+- Start by typing `editor` in the YAML and there will be a prompt to finish the word
+- Press tab or Return to finish.
+- Tab again at the `:` prompt offers the options: `visual` or `source` 
+:::
+
+
+## Visual Markdown Editing
+
+![](img/visual-editor-word.PNG){fig-alt="Screenshot of Visual Editor button, written out"}
+
+## Set default to Visual Editor
+
+:::: {.columns}
+
+::: {.column width='60%'}
+
+![](img/visual-editor-default.PNG){fig-alt="Screenshot of Tools/Global Options/RMarkdown/Visual with option to make Editor view default"}
+:::
+
+::: {.column width='40%'}
+This is an option that can be set with a Quarto template but also changed in Tools > Global Options > R Markdown > Visual tab
+:::
+
+::::
+
+## Have a go!
+
+1. Change the title and then render.
+1. Go to the bottom of the existing code and in Visual mode create a header `Introduction code` and add a small table.
+1. Change the view to Source from Visual - what does the table look like in code?.
+1. Click on the wheel icon next to Render and in that menu select Preview in `View Pane`.
+1. Render the qmd.
+
+::: notes
+For Visual mode in Quarto:
+Type / then return for the visual mode to get a short list of code like chunks and headers.
+
+The table can be created through Insert menu or Table and it's the same.
+
+Type in the Source code table to mess up the structure, go to Visual and show how this can be moved with a mouse, then back to Source and it will be neatened automatically.
+
+:::
+
+```{r}
+#| eval: true
+countdown::countdown(minutes = 8,
+                     color_border = "#005EB8",
+                     color_text = "#005EB8",
+                     color_running_text = "white",
+                     color_running_background = "#005EB8",
+                     color_finished_text = "#005EB8",
+                     color_finished_background = "white",
+                     margin = "0.9em",
+                     font_size = "2em")
+```
+
+
+## End session
