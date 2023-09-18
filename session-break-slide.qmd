@@ -1,7 +1,5 @@
 ---
 title: "Introduction to R and Rstudio"
-title-slide-attributes: 
-  data-background-color: "#43464B"
 subtitle: "Session - Break"
 execute: 
   eval: true

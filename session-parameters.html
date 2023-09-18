@@ -1219,6 +1219,7 @@ Zoë Turner
 </div>
 
 </section><section id="using-quarto" class="slide level2"><h2>Using {quarto}</h2>
+<p>Writing out the code:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb1-1"><a href="#cb1-1"></a><span class="in">```{r}</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">&quot;my_report.qmd&quot;</span>, </span>
@@ -1227,87 +1228,95 @@ Zoë Turner
 <span id="cb1-5"><a href="#cb1-5"></a>)</span>
 <span id="cb1-6"><a href="#cb1-6"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="fragment">
+<p>On the Terminal:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a>quarto render my_report.qmd -P country:&quot;United_Kingdom&quot; --to html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 </section><section id="more-than-one-parameter" class="slide level2"><h2>More than one parameter</h2>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1"></a><span class="in">```{r}</span></span>
-<span id="cb2-2"><a href="#cb2-2"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">&quot;my_report.qmd&quot;</span>, </span>
-<span id="cb2-3"><a href="#cb2-3"></a>                      <span class="at">execute_params =</span> <span class="fu">list</span>(<span class="at">country =</span> <span class="st">&quot;United_Kingdom&quot;</span>,</span>
-<span id="cb2-4"><a href="#cb2-4"></a>                                            <span class="at">month_start =</span> <span class="st">&quot;2020-01-01&quot;</span>,</span>
-<span id="cb2-5"><a href="#cb2-5"></a>                                            <span class="at">month_end =</span> <span class="st">&quot;2020-01-01&quot;</span>),</span>
-<span id="cb2-6"><a href="#cb2-6"></a>                      <span class="at">output_format =</span> <span class="st">&quot;html&quot;</span></span>
-<span id="cb2-7"><a href="#cb2-7"></a>)</span>
-<span id="cb2-8"><a href="#cb2-8"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="in">```{r}</span></span>
+<span id="cb3-2"><a href="#cb3-2"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">&quot;my_report.qmd&quot;</span>, </span>
+<span id="cb3-3"><a href="#cb3-3"></a>                      <span class="at">execute_params =</span> <span class="fu">list</span>(<span class="at">country =</span> <span class="st">&quot;United_Kingdom&quot;</span>,</span>
+<span id="cb3-4"><a href="#cb3-4"></a>                                            <span class="at">month_start =</span> <span class="st">&quot;2020-01-01&quot;</span>,</span>
+<span id="cb3-5"><a href="#cb3-5"></a>                                            <span class="at">month_end =</span> <span class="st">&quot;2020-01-01&quot;</span>),</span>
+<span id="cb3-6"><a href="#cb3-6"></a>                      <span class="at">output_format =</span> <span class="st">&quot;html&quot;</span></span>
+<span id="cb3-7"><a href="#cb3-7"></a>)</span>
+<span id="cb3-8"><a href="#cb3-8"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="fragment">
+<p>On the Terminal:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a>quarto render my_report.qmd -P country:&quot;United_Kingdom&quot; -P month_start:&quot;2020-01-01&quot; -P month_end:&quot;2020-01-01&quot; --to html</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="rendering-multiple-reports" class="slide level2"><h2>Rendering multiple reports</h2>
 <p>The parameters have been for just one report but if we need to run several in one go we need to a function and a loop in R.</p>
 <div>
 <ul>
 <li class="fragment">A function - is a block of code which only runs when its called (Source: <a href="https://www.w3schools.com/r/r_functions.asp">W3Schools</a>)</li>
-<li class="fragment">A loop - is used for repeating code and can be used with functions</li>
+<li class="fragment">A loop - is used for repeating code (and can be used with functions)</li>
 </ul>
 </div>
 </section><section id="a-function" class="slide level2"><h2>A function</h2>
 <p>Starts with a name: <code>run_docs</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="in">```{r}</span></span>
-<span id="cb3-2"><a href="#cb3-2"></a>run_docs <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
-<span id="cb3-3"><a href="#cb3-3"></a>  }</span>
-<span id="cb3-4"><a href="#cb3-4"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>run_docs <span class="ot">&lt;-</span> <span class="cf">function</span>() {</span>
+<span id="cb5-3"><a href="#cb5-3"></a>  }</span>
+<span id="cb5-4"><a href="#cb5-4"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>Takes inputs (called parameters/arguments)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="in">```{r}</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>run_docs <span class="ot">&lt;-</span> <span class="cf">function</span>(country, month_start) {</span>
-<span id="cb4-3"><a href="#cb4-3"></a></span>
-<span id="cb4-4"><a href="#cb4-4"></a>  }</span>
-<span id="cb4-5"><a href="#cb4-5"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="in">```{r}</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>run_docs <span class="ot">&lt;-</span> <span class="cf">function</span>(country, month_start) {</span>
+<span id="cb6-3"><a href="#cb6-3"></a></span>
+<span id="cb6-4"><a href="#cb6-4"></a>  }</span>
+<span id="cb6-5"><a href="#cb6-5"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 <div class="fragment">
 <p>Call the {quarto} package which we’ve used before</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="in">```{r}</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>run_docs <span class="ot">&lt;-</span> <span class="cf">function</span>(country, month_start) {</span>
-<span id="cb5-3"><a href="#cb5-3"></a>  quarto<span class="sc">::</span><span class="fu">quarto_render</span>(</span>
-<span id="cb5-4"><a href="#cb5-4"></a>    <span class="st">&quot;my_report.qmd&quot;</span>,</span>
-<span id="cb5-5"><a href="#cb5-5"></a>    <span class="at">output_format =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb5-6"><a href="#cb5-6"></a>    <span class="at">execute_params =</span> <span class="fu">list</span>(<span class="at">country =</span> country, </span>
-<span id="cb5-7"><a href="#cb5-7"></a>                          <span class="at">month_start =</span> month_start)</span>
-<span id="cb5-8"><a href="#cb5-8"></a>  )</span>
-<span id="cb5-9"><a href="#cb5-9"></a>  }</span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="in">```{r}</span></span>
+<span id="cb7-2"><a href="#cb7-2"></a>run_docs <span class="ot">&lt;-</span> <span class="cf">function</span>(country, month_start) {</span>
+<span id="cb7-3"><a href="#cb7-3"></a>  quarto<span class="sc">::</span><span class="fu">quarto_render</span>(</span>
+<span id="cb7-4"><a href="#cb7-4"></a>    <span class="st">&quot;my_report.qmd&quot;</span>,</span>
+<span id="cb7-5"><a href="#cb7-5"></a>    <span class="at">output_format =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb7-6"><a href="#cb7-6"></a>    <span class="at">execute_params =</span> <span class="fu">list</span>(<span class="at">country =</span> country, </span>
+<span id="cb7-7"><a href="#cb7-7"></a>                          <span class="at">month_start =</span> month_start)</span>
+<span id="cb7-8"><a href="#cb7-8"></a>  )</span>
+<span id="cb7-9"><a href="#cb7-9"></a>  }</span>
+<span id="cb7-10"><a href="#cb7-10"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section><section id="naming-the-files" class="slide level2"><h2>Naming the files</h2>
-<p>In this function we can also use the parameters to create distinct file names</p>
+<p>In this function we can also use the parameters to create distinct file names so files are created like <code>Ireland 2020-01-01.html</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6" data-code-line-numbers="9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a><span class="co">#| code-line-numbers: 9</span></span>
-<span id="cb6-3"><a href="#cb6-3"></a>run_docs <span class="ot">&lt;-</span> <span class="cf">function</span>(country, month_start) {</span>
-<span id="cb6-4"><a href="#cb6-4"></a>  quarto<span class="sc">::</span><span class="fu">quarto_render</span>(</span>
-<span id="cb6-5"><a href="#cb6-5"></a>    <span class="st">&quot;my_report.qmd&quot;</span>,</span>
-<span id="cb6-6"><a href="#cb6-6"></a>    <span class="at">output_format =</span> <span class="st">&quot;html&quot;</span>,</span>
-<span id="cb6-7"><a href="#cb6-7"></a>    <span class="at">execute_params =</span> <span class="fu">list</span>(<span class="at">country =</span> country, </span>
-<span id="cb6-8"><a href="#cb6-8"></a>                          <span class="at">month_start =</span> month_start),</span>
-<span id="cb6-9"><a href="#cb6-9"></a>    <span class="at">output_file =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">&quot;{country} {month}.html&quot;</span>) <span class="co"># creates the file name</span></span>
-<span id="cb6-10"><a href="#cb6-10"></a>  )</span>
-<span id="cb6-11"><a href="#cb6-11"></a>  }</span>
-<span id="cb6-12"><a href="#cb6-12"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8" data-code-line-numbers="9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="in">```{r}</span></span>
+<span id="cb8-2"><a href="#cb8-2"></a><span class="co">#| code-line-numbers: 9</span></span>
+<span id="cb8-3"><a href="#cb8-3"></a>run_docs <span class="ot">&lt;-</span> <span class="cf">function</span>(country, month_begin) {</span>
+<span id="cb8-4"><a href="#cb8-4"></a>  quarto<span class="sc">::</span><span class="fu">quarto_render</span>(</span>
+<span id="cb8-5"><a href="#cb8-5"></a>    <span class="st">&quot;my_report.qmd&quot;</span>,</span>
+<span id="cb8-6"><a href="#cb8-6"></a>    <span class="at">output_format =</span> <span class="st">&quot;html&quot;</span>,</span>
+<span id="cb8-7"><a href="#cb8-7"></a>    <span class="at">execute_params =</span> <span class="fu">list</span>(<span class="at">country =</span> country, </span>
+<span id="cb8-8"><a href="#cb8-8"></a>                          <span class="at">month_start =</span> month_begin),</span>
+<span id="cb8-9"><a href="#cb8-9"></a>    <span class="at">output_file =</span> glue<span class="sc">::</span><span class="fu">glue</span>(<span class="st">&quot;{country} {month_begin}.html&quot;</span>) <span class="co"># creates the file name</span></span>
+<span id="cb8-10"><a href="#cb8-10"></a>  )</span>
+<span id="cb8-11"><a href="#cb8-11"></a>}</span>
+<span id="cb8-12"><a href="#cb8-12"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="using-the-function" class="slide level2"><h2>Using the function</h2>
 <p>A function can be used individually</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb7-1"><a href="#cb7-1"></a><span class="in">```{r}</span></span>
-<span id="cb7-2"><a href="#cb7-2"></a><span class="fu">run_docs</span>(<span class="st">&quot;New_Zealand&quot;</span>, <span class="st">&quot;2020-01-01&quot;</span>)</span>
-<span id="cb7-3"><a href="#cb7-3"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb9-1"><a href="#cb9-1"></a><span class="in">```{r}</span></span>
+<span id="cb9-2"><a href="#cb9-2"></a><span class="fu">run_docs</span>(<span class="st">&quot;New_Zealand&quot;</span>, <span class="st">&quot;2020-01-01&quot;</span>)</span>
+<span id="cb9-3"><a href="#cb9-3"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="fragment">
 <p>And for many (in a loop)</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb8-1"><a href="#cb8-1"></a><span class="in">```{r}</span></span>
-<span id="cb8-2"><a href="#cb8-2"></a>purrr<span class="sc">::</span><span class="fu">map2</span>(<span class="fu">c</span>(<span class="st">&quot;New_Zealand&quot;</span>, <span class="st">&quot;United_Kingdom&quot;</span>), <span class="st">&quot;2020-01-01&quot;</span>, run_docs)</span>
-<span id="cb8-3"><a href="#cb8-3"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb10-1"><a href="#cb10-1"></a><span class="in">```{r}</span></span>
+<span id="cb10-2"><a href="#cb10-2"></a>purrr<span class="sc">::</span><span class="fu">map2</span>(<span class="fu">c</span>(<span class="st">&quot;New_Zealand&quot;</span>, <span class="st">&quot;United_Kingdom&quot;</span>), <span class="st">&quot;2020-01-01&quot;</span>, run_docs)</span>
+<span id="cb10-3"><a href="#cb10-3"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </div>
 </section><section id="next-section" class="slide level2 smaller"><h2>Next Section</h2>

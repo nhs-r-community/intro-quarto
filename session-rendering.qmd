@@ -1,7 +1,5 @@
 ---
 title: "Rendering multiple reports"
-title-slide-attributes: 
-  data-background-color: "#43464B"
 subtitle: "Session - using Quarto Projects"
 ---
 
@@ -51,7 +49,7 @@ project:
 
 ## Rendering from the Terminal
 
-Where the prompt is `$` commands can be used for `git` and now `quarto`:
+Where the prompt is `$` commands can be used for `git` and also `quarto`:
 
 ```markdown
 quarto render

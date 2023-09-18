@@ -1,7 +1,5 @@
 ---
 title: "Output formats"
-title-slide-attributes: 
-  data-background-color: "#43464B"
 subtitle: "Session - Creating things from Quarto"
 ---
 
@@ -28,7 +26,7 @@ format:
   docx:
     toc: true
 ```
-only the first will render.
+only the first will render with the `Render` button in RStudio.
 
 ## Using {quarto} package
 
@@ -39,6 +37,8 @@ The {quarto} package (which is different to Quarto which is in RStudio) can rend
 
 quarto::quarto_render(output_format = "docx")
 ```
+
+. . .
 
 :::{.callout-warning collapse=false appearance='default' icon=true}
 ## Quarto project
@@ -53,13 +53,6 @@ project:
 
 ## And all formats
 
-Again, with the requirement of a file called `_quarto.yml` including the lines:
-
-```markdown
-project:
-  title: "intro-quarto"
-```
-
 The following can generate all outputs:
 
 ```{r}
@@ -70,7 +63,7 @@ quarto::quarto_render(output_format = "all")
 
 ## Run any file
 
-This code was run when the file was open but it's possible to Render any Quarto file:
+It's possible to Render any Quarto file (even when not open in RStudio):
 
 ```{r}
 #| echo: fenced

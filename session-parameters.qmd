@@ -1,7 +1,5 @@
 ---
 title: "Parameters"
-title-slide-attributes: 
-  data-background-color: "#43464B"
 subtitle: "Session - running reports from different inputs"
 execute: 
   echo: fenced
@@ -18,12 +16,22 @@ library(quarto)
 
 ## Using {quarto}
 
+Writing out the code:
+
 ```{r}
 quarto::quarto_render("my_report.qmd", 
                       execute_params = list(country = "United_Kingdom"),
                       output_format = "html"
 )
  
+```
+
+. . .
+
+On the Terminal:
+
+```markdown
+quarto render my_report.qmd -P country:"United_Kingdom" --to html
 ```
 
 ## More than one parameter
@@ -38,13 +46,21 @@ quarto::quarto_render("my_report.qmd",
  
 ```
 
+. . .
+
+On the Terminal:
+
+```markdown
+quarto render my_report.qmd -P country:"United_Kingdom" -P month_start:"2020-01-01" -P month_end:"2020-01-01" --to html
+```
+
 ## Rendering multiple reports
 
 The parameters have been for just one report but if we need to run several in one go we need to a function and a loop in R.
 
 ::: {.incremental}
 - A function - is a block of code which only runs when its called (Source: [W3Schools](https://www.w3schools.com/r/r_functions.asp))
-- A loop - is used for repeating code and can be used with functions
+- A loop - is used for repeating code (and can be used with functions)
 :::
 
 ## A function
@@ -84,19 +100,19 @@ run_docs <- function(country, month_start) {
 
 ## Naming the files
 
-In this function we can also use the parameters to create distinct file names
+In this function we can also use the parameters to create distinct file names so files are created like `Ireland 2020-01-01.html`
 
 ```{r}
 #| code-line-numbers: 9
-run_docs <- function(country, month_start) {
+run_docs <- function(country, month_begin) {
   quarto::quarto_render(
     "my_report.qmd",
     output_format = "html",
     execute_params = list(country = country, 
-                          month_start = month_start),
-    output_file = glue::glue("{country} {month}.html") # creates the file name
+                          month_start = month_begin),
+    output_file = glue::glue("{country} {month_begin}.html") # creates the file name
   )
-  }
+}
 ```
 
 ## Using the function

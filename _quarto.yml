@@ -3,6 +3,7 @@ project:
   render: 
     - "*.qmd"
     - "!*.md"
+    - "!files/"
 author: "Zoë Turner"
 format:
   revealjs:
@@ -16,5 +17,6 @@ execute:
   echo: false
   eval: false
 embed-resources: true
-
+title-slide-attributes: 
+  data-background-color: "#43464B"
 

@@ -1235,7 +1235,7 @@ Zoë Turner
 <span id="cb1-3"><a href="#cb1-3"></a>    toc: true</span>
 <span id="cb1-4"><a href="#cb1-4"></a>  docx:</span>
 <span id="cb1-5"><a href="#cb1-5"></a>    toc: true</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>only the first will render.</p>
+<p>only the first will render with the <code>Render</code> button in RStudio.</p>
 </section><section id="using-quarto-package" class="slide level2"><h2>Using {quarto} package</h2>
 <p>The {quarto} package (which is different to Quarto which is in RStudio) can render to different formats:</p>
 <div class="cell">
@@ -1243,6 +1243,7 @@ Zoë Turner
 <span id="cb2-2"><a href="#cb2-2"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="at">output_format =</span> <span class="st">&quot;docx&quot;</span>)</span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<div class="fragment">
 <div class="callout callout-warning callout-titled callout-style-default">
 <div class="callout-body">
 <div class="callout-title">
@@ -1263,22 +1264,20 @@ Zoë Turner
 </div>
 </div>
 </div>
+</div>
 </section><section id="and-all-formats" class="slide level2"><h2>And all formats</h2>
-<p>Again, with the requirement of a file called <code>_quarto.yml</code> including the lines:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="an">project:</span></span>
-<span id="cb4-2"><a href="#cb4-2"></a>  title: &quot;intro-quarto&quot;</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <p>The following can generate all outputs:</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="in">```{r}</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="at">output_format =</span> <span class="st">&quot;all&quot;</span>)</span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb4-1"><a href="#cb4-1"></a><span class="in">```{r}</span></span>
+<span id="cb4-2"><a href="#cb4-2"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="at">output_format =</span> <span class="st">&quot;all&quot;</span>)</span>
+<span id="cb4-3"><a href="#cb4-3"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="run-any-file" class="slide level2"><h2>Run any file</h2>
-<p>This code was run when the file was open but it’s possible to Render any Quarto file:</p>
+<p>It’s possible to Render any Quarto file (even when not open in RStudio):</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="in">```{r}</span></span>
-<span id="cb6-2"><a href="#cb6-2"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">&quot;images_report/example_report.qmd&quot;</span>)</span>
-<span id="cb6-3"><a href="#cb6-3"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="in">```{r}</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a>quarto<span class="sc">::</span><span class="fu">quarto_render</span>(<span class="st">&quot;images_report/example_report.qmd&quot;</span>)</span>
+<span id="cb5-3"><a href="#cb5-3"></a><span class="in">```</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section><section id="next-section" class="slide level2"><h2>Next Section</h2>
 

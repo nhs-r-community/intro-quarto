@@ -1234,7 +1234,9 @@ Zoë Turner
 </div>
 </div>
 <p>As it would appear in a sentence:</p>
+<div class="fragment">
 <p>There are <strong>350</strong> records available for United Kingdom in the Covid19 dataset from {NHSRdatasets}.</p>
+</div>
 </section><section id="inline-text-formatting" class="slide level2"><h2>Inline text formatting</h2>
 <p>Code requires no breaks in lines:</p>
 <p><code>`r NHSRdatasets::covid19 |&gt; filter(countries_and_territories == &quot;United_Kingdom&quot;) |&gt; summarise(total = n())`</code></p>
@@ -1255,7 +1257,7 @@ Zoë Turner
 </div>
 </div>
 </section><section id="avoid-long-inline-code" class="slide level2"><h2>Avoid long inline code</h2>
-<p>The example is very long code which makes it hard to debug when inline so the approach should be to create an object:</p>
+<p>The example is very long code which makes it hard to debug when inline so a better way is to create an object:</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb3-1"><a href="#cb3-1"></a><span class="in">```{r}</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a>total_records <span class="ot">&lt;-</span> NHSRdatasets<span class="sc">::</span>covid19 <span class="sc">|&gt;</span></span>
@@ -1275,7 +1277,7 @@ Zoë Turner
 <p><strong>The <code>pull()</code> function</strong></p>
 </div>
 <div class="callout-content">
-<p>Sometimes the code you produce won’t show as part of a sentence because it’s a data frame and needs to be a single vector for inline. To extract a single column pipe (<code>|&gt;</code>) to <code>pull()</code> at the end of your code</p>
+<p>Sometimes the code you produce won’t show as part of a sentence because it’s a data frame and needs to be a single vector for inline. To extract a single column pipe <code>|&gt;</code> to <code>pull()</code> at the end of your code</p>
 </div>
 </div>
 </div>

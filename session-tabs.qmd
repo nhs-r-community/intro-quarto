@@ -1,7 +1,5 @@
 ---
 title: "Tabset panels"
-title-slide-attributes: 
-  data-background-color: "#43464B"
 subtitle: "Session - tabs"
 editor_options: 
   chunk_output_type: inline
@@ -18,8 +16,8 @@ library(knitr)
 ## Breaking up long reports in HTML
 
 ::: {.incremental}
-- Used to allow users to toggle between sections and breakup very long HTML.
-- Cannot be used in reports that are static like Word or pdf.
+- Allows users to toggle between sections and breakup very long HTML
+- Cannot be used in reports that are static like Word or pdf
 :::
 
 
@@ -60,18 +58,21 @@ remotes::install_github("matt-dray/quartostamp")
 
 . . .
 
-Then we'll highlight from `## Overview` to the very end and select `Insert Tabset` from the Addins menu (under Help) and Render
+Then we'll select from `## Overview` to the very end and select `Insert Tabset` from the Addins menu (under Help) and Render
 
 . . .
 
-:::{.callout-important collapse=false appearance='default' icon=true}
-## Note the level of headers
-- {quartostamp} can be used with or without text
+:::{.callout-tip collapse=false appearance='default' icon=true}
+## Tip! {quartostamp} can be used with or without text
+- To get the template code select from the add in
+- But where you've already written the text, highlight before selecting the add-in
 :::
 
 ## Styling tabs
 
-It's possible to change the view of the tabs:
+It's possible to change the view of the tabs by adding `.nav-pills`:
+
+. . .
 
 ```markdown
 ::: {.panel-tabset .nav-pills}

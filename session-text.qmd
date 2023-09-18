@@ -1,7 +1,5 @@
 ---
 title: "Formatting text in Quarto"
-title-slide-attributes: 
-  data-background-color: "#43464B"
 subtitle: "Session - Text"
 execute: 
   eval: true
@@ -16,7 +14,9 @@ library(countdown)
 
 Quarto reports support text and code with the text being `Markdown`
 
-*Quarto Markdown = qmd*
+**Q**uarto **M**ark**d**own
+
+`.qmd` file
 
 ## Headers
 
@@ -33,13 +33,16 @@ Quarto reports support text and code with the text being `Markdown`
 
 ###### HEADER 6
 
-#Example no space!
 ```
+. . .
 
 ::: {.callout-warning collapse="false" appearance="default" icon="true"}
 ## Optional caption (warning)
 
 Make sure that there is a space between the hashes!
+
+
+#Example no space!
 :::
 
 ::: notes
@@ -48,7 +51,7 @@ Ask to copy and paste to a report as this won't render in presentation slides - 
 Also show the Visual mode in RStudio for headers
 :::
 
-## Navigating headers
+## Navigating headers in RStudio
 
 ![](img/outline-headers.PNG){fig-alt="Screenshot of Headers Outline as appears in newer versions of RStudio, includes the word Outline" width="250"}
 
@@ -78,32 +81,19 @@ _Italic_
 :::
 :::
 
+. . .
+
 ::: {.callout-caution collapse="false" appearance="default" icon="true"}
 ### Underlining is missing
 
-Whilst underlining can be done using using html it's not accessible for everyone and can be confused with hyperlinks so is best avoided.
+Whilst underlining can be done using using html it's not accessible for everyone and can be confused with hyperlinks so is best avoided
 :::
-
-## Visual Markdown Editing
-
-![](img/visual-editor-word.PNG){fig-alt="Screenshot of Visual Editor button, written out"}
-
-## Default to Visual Editor
-
-:::: {.columns}
-
-::: {.column width='60%'}
-
-![](img/visual-editor-default.PNG){fig-alt="Screenshot of Tools/Global Options/RMarkdown/Visual with option to make Editor view default"}
-:::
-
-::: {.column width='40%'}
-This is an option that can be set with a Quarto template but also changed in Tools > Global Options > R Markdown > Visual tab
-:::
-
-::::
 
 ## Lists
+
+Bullets can be created with `*` or `-` and numbers can be `1.` repeated
+
+. . .
 
 :::: {.columns}
 
@@ -142,12 +132,14 @@ These data types occur in various places
 
 :::{.callout-warning collapse=false appearance='default' icon=true}
 ### Spaces!
-- A return space is needed to separate the list from preceeding text
-- Spaces between the bullet symbol and text are also required
+- A return space is needed to separate the list from preceding text
+- Spaces between the bullet symbol and text are also required 
 - Separating lines that are not in bullets can be done with two spaces at the end
 :::
 
-## Examples of lists not working
+. . .
+
+Copy this to `my-report.qmd` and correct the issues
 
 :::: {.columns}
 
@@ -159,52 +151,41 @@ Check the spacing:
 -This is missing a space
 *Also missing a space
 
-When there
-are two lines that need to be separated
+These two lines
+need to be separated using two space
 
-This is done  
-with two spaces after the last word
 ```
 :::
 
 ::: {.column width='50%'}
-Check the spacing:
-- This is right up again the text
 
--This is missing a space
-*Also missing a space
-
-When there
-are two lines that need to be separated
-
-This is done  
-with two spaces after the last word
+```{r}
+countdown::countdown(
+  minutes = 6,
+  color_border = "#005EB8",
+  color_text = "#005EB8",
+  color_running_text = "white",
+  color_running_background = "#005EB8",
+  color_finished_text = "#005EB8",
+  color_finished_background = "white",
+  font_size = "2em",
+  warn_when = 10,
+  bottom = 1
+)
+```
 :::
-
 ::::
 
 ## Hyperlink
 
-### Brackets [] and ()
+### Using markdown and brackets `[]()`
 
-```markdown
-Link to the [course material](https://github.com/nhs-r-community/intro-quarto)
+Using the `[]` for the words:
+
+``` markdown
+Sign up to free events through the [NHS-R Community](https://nhsrcommunity.com/) website
 ```
 
-Link to the [course material](https://github.com/nhs-r-community/intro-quarto)
-
-## Cross reference {#cross-ref}
-
-```markdown
-Link within the [same document](#example-slide)
-
-## Example slide hyperlinked to {#example-slide}
-
-```
-Link within the [same document](#example-slide)
-
-## Example slide hyperlinked to {#example-slide visibility="uncounted"}
-
-[Go back](#cross-ref)
+Sign up to free events through the [NHS-R Community](https://nhsrcommunity.com/) website
 
 ## Next Section

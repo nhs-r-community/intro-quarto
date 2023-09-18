@@ -1,7 +1,5 @@
 ---
 title: "What is inside Quarto in more detail"
-title-slide-attributes: 
-  data-background-color: "#43464B"
 subtitle: "Session - What's inside?"
 execute: 
   eval: true
@@ -17,18 +15,20 @@ library(countdown)
 ## How *does* Quarto work?
 
 ::: incremental
--   `r emo::ji("shrug")`
--   I press `Render`, a document appears, and I believe that anything happening in between could be actual magic!
--   `knitr` executes the code and converts `.qmd` to `.md`; **Pandoc** renders the `.md` file to the output format you want
+- `r emo::ji("shrug")`
+- I press `Render`, a document appears, and I believe that anything happening in between could be actual magic!
+- `knitr` executes the code and converts `.qmd` to `.md`; **Pandoc** renders the `.md` file to the output format you want
+- What do you think?
 :::
 
-## How *does* Quarto work - answers?
+## Answers?
 
-1.  `r emo::ji("shrug")` `r emo::ji("heavy_check_mark")`
+::: {.incremental}
+1. `r emo::ji("shrug")` `r emo::ji("heavy_check_mark")`
+2. ["I press knit, a document appears, and I believe that anything happening in between could be actual magic."](https://twitter.com/allison_horst/status/1070323369600442368?s=20) `r emo::ji("wizard")`)
+3. `knitr` executes the code and converts `.Rmd` to `.md`; **Pandoc** renders the `.md` file to the output format you want. `r emo::ji("heavy_check_mark")`
+:::
 
-2.  ["I press knit, a document appears, and I believe that anything happening in between could be actual magic."](https://twitter.com/allison_horst/status/1070323369600442368?s=20) `r emo::ji("wizard")`)
-
-3.  `knitr` executes the code and converts `.Rmd` to `.md`; **Pandoc** renders the `.md` file to the output format you want. `r emo::ji("heavy_check_mark")`
 
 ::: footer
 https://quarto.org/docs/computations/r.html
@@ -40,6 +40,8 @@ https://quarto.org/docs/computations/r.html
 
 ::: {.column width='40%'}
 *"YAML Ain't Markup Language"*
+
+It's a language that isn't R or markdown!
 
 ``` yaml
 ---
@@ -54,18 +56,12 @@ key: value
 
 ::::
 
-::: {.notes}
-Using the {ymlthis} this section renders the "look" of the YAML with the three dashes then key: value which is the format used in YAML.
-:::
-
-## Output options
-
 ## Save output options in your YAML
 
 :::: {.columns}
 
 ::: {.column width='40%'}
-Basic YAML
+Basic YAML that is generated from a template
 
 ``` yaml
 ---
@@ -79,7 +75,7 @@ format: html
 :::
 
 ::: {.column width='60%'}
-Add html related options
+Can be extended for certain options
 
 ``` yaml
 ---
@@ -98,15 +94,16 @@ format:
 
 ## Your turn
 
-# Add output options to YAML
-
-See Quarto [online documentation](https://quarto.org/docs/reference/formats/html.html) for help 
+In `my-report.qmd` do the following:
 
 ::: {.incremental}
 - Add a table of contents (toc)
 - Move it from the default right to the left
 - Embed the source code (known as `code tools` in Quarto)
 :::
+
+
+See Quarto [online documentation](https://quarto.org/docs/reference/formats/html.html) for help 
 
 ::: footer
 _psst...answers on the next slide..._
@@ -145,31 +142,40 @@ format:
 Copying the code to MS Teams to share will lose the formatting!
 :::
 
+## Embed resources (or self-contained)
 
-## Parameters
+::: {.incremental}
+- Adding `embed-resources: true` to the YAML removes a generated folder of the file name that includes supporting files.
+- This makes it easier to share with others as only the html needs to be sent.
+- Self contained from RMarkdown also works - Quarto is backwards compatible.
+:::
 
-Using data from the {NHSRdatasets} from CRAN and using `covid19`
 
-``` yaml
----
-title: "Untitled"
-format: 
-  html:
-    toc: true
-    toc-location: left
-    code-fold: true
-    code-tools: true
-params:
-  site: `United_Kingdom`
----
+
+## Date formats in the YAML
+
+Date formats in [Quarto](https://quarto.org/docs/reference/dates.html):
+
+```markdown
+date: today
+date-format: "D MMMM YYYY"
 ```
+## Dark theme
 
-Change site to `Ireland` and Render, what changes?
+Adding a dark theme to a report is possible with the following YAML:
 
+```markdown
+format:
+  html:
+    theme:
+      light: default
+      dark: darkly  
+```
 ## Time for a break! `r emo::ji("stopwatch")`
  
 ```{r}
 countdown::countdown(minutes = 10)
 ```
+
 
 ## Next Section

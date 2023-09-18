@@ -1705,14 +1705,19 @@ Zoë Turner
 <li class="fragment">I press <code>Render</code>, a document appears, and I believe that anything happening in between could be actual magic!</li>
 <li class="fragment">
 <code>knitr</code> executes the code and converts <code>.qmd</code> to <code>.md</code>; <strong>Pandoc</strong> renders the <code>.md</code> file to the output format you want</li>
+<li class="fragment">What do you think?</li>
 </ul>
 </div>
-</section><section id="how-does-quarto-work---answers" class="slide level2"><h2>How <em>does</em> Quarto work - answers?</h2>
+</section><section id="answers" class="slide level2"><h2>Answers?</h2>
+<div>
 <ol type="1">
-<li><p>🤷 ✔️</p></li>
-<li><p><a href="https://twitter.com/allison_horst/status/1070323369600442368?s=20">“I press knit, a document appears, and I believe that anything happening in between could be actual magic.”</a> 🧙‍♂️)</p></li>
-<li><p><code>knitr</code> executes the code and converts <code>.Rmd</code> to <code>.md</code>; <strong>Pandoc</strong> renders the <code>.md</code> file to the output format you want. ✔️</p></li>
+<li class="fragment">🤷 ✔️</li>
+<li class="fragment">
+<a href="https://twitter.com/allison_horst/status/1070323369600442368?s=20">“I press knit, a document appears, and I believe that anything happening in between could be actual magic.”</a> 🧙‍♂️)</li>
+<li class="fragment">
+<code>knitr</code> executes the code and converts <code>.Rmd</code> to <code>.md</code>; <strong>Pandoc</strong> renders the <code>.md</code> file to the output format you want. ✔️</li>
 </ol>
+</div>
 <div class="footer">
 <p>https://quarto.org/docs/computations/r.html</p>
 </div>
@@ -1720,6 +1725,7 @@ Zoë Turner
 <div class="columns">
 <div class="column" style="width:40%;">
 <p><em>“YAML Ain’t Markup Language”</em></p>
+<p>It’s a language that isn’t R or markdown!</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb1-1"><a href="#cb1-1"></a><span class="pp">---</span></span>
 <span id="cb1-2"><a href="#cb1-2"></a><span class="fu">key</span><span class="kw">:</span><span class="at"> value</span></span>
 <span id="cb1-3"><a href="#cb1-3"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -1730,22 +1736,10 @@ Zoë Turner
 </div>
 </div>
 </div>
-<aside class="notes"><p>Using the {ymlthis} this section renders the “look” of the YAML with the three dashes then key: value which is the format used in YAML.</p>
-<style type="text/css">
-span.MJX_Assistive_MathML {
-position:absolute!important;
-clip: rect(1px, 1px, 1px, 1px);
-padding: 1px 0 0 0!important;
-border: 0!important;
-height: 1px!important;
-width: 1px!important;
-overflow: hidden!important;
-display:block!important;
-}</style></aside></section><section id="output-options" class="slide level2"><h2>Output options</h2>
 </section><section id="save-output-options-in-your-yaml" class="slide level2"><h2>Save output options in your YAML</h2>
 <div class="columns">
 <div class="column" style="width:40%;">
-<p>Basic YAML</p>
+<p>Basic YAML that is generated from a template</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb2-1"><a href="#cb2-1"></a><span class="pp">---</span></span>
 <span id="cb2-2"><a href="#cb2-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Report&quot;</span></span>
 <span id="cb2-3"><a href="#cb2-3"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Zoë Turner&quot;</span></span>
@@ -1753,7 +1747,7 @@ display:block!important;
 <span id="cb2-5"><a href="#cb2-5"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> html</span></span>
 <span id="cb2-6"><a href="#cb2-6"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column" style="width:60%;">
-<p>Add html related options</p>
+<p>Can be extended for certain options</p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb3-1"><a href="#cb3-1"></a><span class="pp">---</span></span>
 <span id="cb3-2"><a href="#cb3-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Report&quot;</span></span>
 <span id="cb3-3"><a href="#cb3-3"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Zoë Turner&quot;</span></span>
@@ -1765,8 +1759,7 @@ display:block!important;
 </div>
 </div>
 </section><section id="your-turn" class="slide level2"><h2>Your turn</h2>
-</section><section><section id="add-output-options-to-yaml" class="title-slide slide level1 center"><h1>Add output options to YAML</h1>
-<p>See Quarto <a href="https://quarto.org/docs/reference/formats/html.html">online documentation</a> for help</p>
+<p>In <code>my-report.qmd</code> do the following:</p>
 <div>
 <ul>
 <li class="fragment">Add a table of contents (toc)</li>
@@ -1774,12 +1767,13 @@ display:block!important;
 <li class="fragment">Embed the source code (known as <code>code tools</code> in Quarto)</li>
 </ul>
 </div>
+<p>See Quarto <a href="https://quarto.org/docs/reference/formats/html.html">online documentation</a> for help</p>
 <div class="footer">
 <p><em>psst…answers on the next slide…</em></p>
 </div>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_b86762b3" data-warn-when="10" data-update-every="1" tabindex="0" style="right:0;bottom:1;font-size:2em;">
+<div class="countdown" id="timer_fc19523a" data-warn-when="10" data-update-every="1" tabindex="0" style="right:0;bottom:1;font-size:2em;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -1787,7 +1781,7 @@ display:block!important;
 </div>
 </div>
 </div>
-</section><section id="answers" class="slide level2"><h2>Answers</h2>
+</section><section id="answers-1" class="slide level2"><h2>Answers</h2>
 <div class="sourceCode" id="cb4"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb4-1"><a href="#cb4-1"></a><span class="pp">---</span></span>
 <span id="cb4-2"><a href="#cb4-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Untitled&quot;</span></span>
 <span id="cb4-3"><a href="#cb4-3"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
@@ -1807,24 +1801,29 @@ height: 1px!important;
 width: 1px!important;
 overflow: hidden!important;
 display:block!important;
-}</style></aside></section><section id="parameters" class="slide level2"><h2>Parameters</h2>
-<p>Using data from the {NHSRdatasets} from CRAN and using <code>covid19</code></p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource yaml number-lines code-with-copy"><code class="sourceCode yaml"><span id="cb5-1"><a href="#cb5-1"></a><span class="pp">---</span></span>
-<span id="cb5-2"><a href="#cb5-2"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Untitled&quot;</span></span>
-<span id="cb5-3"><a href="#cb5-3"></a><span class="fu">format</span><span class="kw">:</span><span class="at"> </span></span>
-<span id="cb5-4"><a href="#cb5-4"></a><span class="at">  </span><span class="fu">html</span><span class="kw">:</span></span>
-<span id="cb5-5"><a href="#cb5-5"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb5-6"><a href="#cb5-6"></a><span class="at">    </span><span class="fu">toc-location</span><span class="kw">:</span><span class="at"> left</span></span>
-<span id="cb5-7"><a href="#cb5-7"></a><span class="at">    </span><span class="fu">code-fold</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb5-8"><a href="#cb5-8"></a><span class="at">    </span><span class="fu">code-tools</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
-<span id="cb5-9"><a href="#cb5-9"></a><span class="fu">params</span><span class="kw">:</span></span>
-<span id="cb5-10"><a href="#cb5-10"></a><span class="at">  </span><span class="fu">site</span><span class="kw">:</span><span class="at"> `United_Kingdom`</span></span>
-<span id="cb5-11"><a href="#cb5-11"></a><span class="pp">---</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<p>Change site to <code>Ireland</code> and Render, what changes?</p>
+}</style></aside></section><section id="embed-resources-or-self-contained" class="slide level2"><h2>Embed resources (or self-contained)</h2>
+<div>
+<ul>
+<li class="fragment">Adding <code>embed-resources: true</code> to the YAML removes a generated folder of the file name that includes supporting files.</li>
+<li class="fragment">This makes it easier to share with others as only the html needs to be sent.</li>
+<li class="fragment">Self contained from RMarkdown also works - Quarto is backwards compatible.</li>
+</ul>
+</div>
+</section><section id="date-formats-in-the-yaml" class="slide level2"><h2>Date formats in the YAML</h2>
+<p>Date formats in <a href="https://quarto.org/docs/reference/dates.html">Quarto</a>:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb5-1"><a href="#cb5-1"></a><span class="an">date:</span><span class="co"> today</span></span>
+<span id="cb5-2"><a href="#cb5-2"></a><span class="an">date-format:</span><span class="co"> &quot;D MMMM YYYY&quot;</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</section><section id="dark-theme" class="slide level2"><h2>Dark theme</h2>
+<p>Adding a dark theme to a report is possible with the following YAML:</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode numberSource markdown number-lines code-with-copy"><code class="sourceCode markdown"><span id="cb6-1"><a href="#cb6-1"></a><span class="an">format:</span></span>
+<span id="cb6-2"><a href="#cb6-2"></a>  html:</span>
+<span id="cb6-3"><a href="#cb6-3"></a>    theme:</span>
+<span id="cb6-4"><a href="#cb6-4"></a>      light: default</span>
+<span id="cb6-5"><a href="#cb6-5"></a>      dark: darkly  </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </section><section id="time-for-a-break" class="slide level2"><h2>Time for a break! ⏱</h2>
 <div class="cell">
 <div class="cell-output-display">
-<div class="countdown" id="timer_7d68751f" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
+<div class="countdown" id="timer_750c6b6e" data-update-every="1" tabindex="0" style="right:0;bottom:0;">
 <div class="countdown-controls">
 <button class="countdown-bump-down">−</button><button class="countdown-bump-up">&amp;plus;</button>
 </div>
@@ -1837,7 +1836,7 @@ display:block!important;
 <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI2LjAuMSwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxMzEyIDUyOC45IiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAxMzEyIDUyOC45OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+Cgkuc3Qwe2ZpbGw6dXJsKCNTVkdJRF8xXyk7fQoJLnN0MXtmaWxsOnVybCgjU1ZHSURfMDAwMDAxMjQ4NTc0NTU2MDM5MDA0NTE5NzAwMDAwMTQzMjgyMTU1MDk3MjE5Njg1NDRfKTt9Cgkuc3Qye2ZpbGw6dXJsKCNTVkdJRF8wMDAwMDEzOTI5NTUxMjc5MjM1OTI0NzczMDAwMDAwNDgzOTU0MDMyMzk0MzkxMDI3NV8pO30KCS5zdDN7ZmlsbDp1cmwoI1NWR0lEXzAwMDAwMDU3ODY0ODAyMDAyMzM2MDUyNzAwMDAwMDA3MjMyNDE5MjUxMjUwOTkxNzQ3Xyk7fQoJLnN0NHtmaWxsOnVybCgjU1ZHSURfMDAwMDAxNDY0NjM0NDk5ODA1MTYwMDkwNDAwMDAwMTg0MDk3Njk1ODA2MDM4NjczMTJfKTt9Cgkuc3Q1e2ZpbGw6dXJsKCNTVkdJRF8wMDAwMDE3MzEyMDU3MDU3OTU4MzkxMDYxMDAwMDAwNjM5MjkyNDk2NDQzNDI2NTAwN18pO30KCS5zdDZ7ZmlsbDojQUZBRkFGO30KPC9zdHlsZT4KPGc+CgkKCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzFfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjMxMy42NTE3IiB5MT0iOTc2LjI5MiIgeDI9IjMxNC4yNjkzIiB5Mj0iOTc1LjY3NDQiIGdyYWRpZW50VHJhbnNmb3JtPSJtYXRyaXgoNzIxLjA5NCAwIDAgLTQ4Mi45MzcgLTIyNTM2MC4zOTA2IDQ3MTUwNS4xMjUpIj4KCQk8c3RvcCAgb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojQ0NDRUQwIi8+CgkJPHN0b3AgIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6Izg0ODQ4QyIvPgoJPC9saW5lYXJHcmFkaWVudD4KCTxwYXRoIGNsYXNzPSJzdDAiIGQ9Ik0xMDM0LjYsMzE1LjhjLTEyMywwLTIyMi43LTY2LjgtMjIyLjctMTQ5LjFjMC04Mi40LDk5LjctMTQ5LjEsMjIyLjctMTQ5LjFjMTIzLDAsMjIyLjcsNjYuOCwyMjIuNywxNDkuMQoJCUMxMjU3LjMsMjQ5LjEsMTE1Ny42LDMxNS44LDEwMzQuNiwzMTUuOHogTTEwNjguNyw3NS45Yy05My41LDAtMTY5LjMsNDUuNi0xNjkuMywxMDJzNzUuOCwxMDIsMTY5LjMsMTAyCgkJYzkzLjUsMCwxNjIuNS0zMS4yLDE2Mi41LTEwMkMxMjMxLjIsMTA3LjEsMTE2Mi4yLDc1LjksMTA2OC43LDc1Ljl6Ii8+CgkKCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzAwMDAwMDQ3MDQxMjEzOTIxMjE2NjU3NTUwMDAwMDE1MjAxMTI0OTc1MjMwMTY4NDU5XyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIzMTMuODg4MiIgeTE9Ijk3Ni4zNzk0IiB4Mj0iMzE0LjUwNTciIHkyPSI5NzUuNzYxOCIgZ3JhZGllbnRUcmFuc2Zvcm09Im1hdHJpeCgzOTggMCAwIC00MDYuMTI0IC0xMjM5NDcuNDkyMiAzOTY2NTcuMDYyNSkiPgoJCTxzdG9wICBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiMzMzZDQjMiLz4KCQk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojMUM1REE5Ii8+Cgk8L2xpbmVhckdyYWRpZW50PgoJPHBhdGggc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF8wMDAwMDA0NzA0MTIxMzkyMTIxNjY1NzU1MDAwMDAxNTIwMTEyNDk3NTIzMDE2ODQ1OV8pOyIgZD0iTTExNTEuMSwyNDguNmMwLDAsMTMuNSw0LjEsMjEuMyw4CgkJYzIuNywxLjQsNy40LDQuMSwxMC44LDcuN2MzLjMsMy41LDQuOSw3LjEsNC45LDcuMWw1My4xLDg5LjZsLTg1LjgsMGwtNDAuMS03NS40YzAsMC04LjItMTQuMS0xMy4zLTE4LjJjLTQuMi0zLjQtNi00LjYtMTAuMi00LjYKCQljLTIuOSwwLTIwLjQsMC0yMC40LDBsMCw5OC4ybC03NiwwVjExMC4ySDExNDhjMCwwLDY5LjUsMS4zLDY5LjUsNjcuNFMxMTUxLjEsMjQ4LjYsMTE1MS4xLDI0OC42eiBNMTExOC4xLDE2NC42bC00NiwwbDAsNDIuNgoJCWw0NiwwYzAsMCwyMS4zLTAuMSwyMS4zLTIxLjdDMTEzOS40LDE2My40LDExMTguMSwxNjQuNiwxMTE4LjEsMTY0LjZ6Ii8+CjwvZz4KPGc+CgkKCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzAwMDAwMTQ5MzYxNzQ1NzY4NjIwNjkwOTQwMDAwMDAzMTU5MzU0MTcxOTQwMTgzOTkzXyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSI1Ny43MDY4IiB5MT0iMjM0LjU1MTkiIHgyPSIyOTUuNTA2OSIgeTI9IjIzNC41NTE5Ij4KCQk8c3RvcCAgb2Zmc2V0PSIwIiBzdHlsZT0ic3RvcC1jb2xvcjojMzM2Q0IzIi8+CgkJPHN0b3AgIG9mZnNldD0iMSIgc3R5bGU9InN0b3AtY29sb3I6IzFDNURBOSIvPgoJPC9saW5lYXJHcmFkaWVudD4KCTxwYXRoIHN0eWxlPSJmaWxsOnVybCgjU1ZHSURfMDAwMDAxNDkzNjE3NDU3Njg2MjA2OTA5NDAwMDAwMDMxNTkzNTQxNzE5NDAxODM5OTNfKTsiIGQ9Ik0yOTUuNSwzNTguNWgtNzcuN2wtODIuMy0xMjQuN3YxMjQuNwoJCUg1Ny43di0yNDhoNzcuN2w4Mi4zLDEyNi44VjExMC42aDc3LjdWMzU4LjV6Ii8+CgkKCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzAwMDAwMDM4NDEwNTgxMzQyNTk3MDAxMDgwMDAwMDE3ODUxNTgzODY3NTQxMzg5NzU2XyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSIzMzAuNTI1NSIgeTE9IjIzNC41NTE5IiB4Mj0iNTU5LjkyMDEiIHkyPSIyMzQuNTUxOSI+CgkJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6IzMzNkNCMyIvPgoJCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMxQzVEQTkiLz4KCTwvbGluZWFyR3JhZGllbnQ+Cgk8cGF0aCBzdHlsZT0iZmlsbDp1cmwoI1NWR0lEXzAwMDAwMDM4NDEwNTgxMzQyNTk3MDAxMDgwMDAwMDE3ODUxNTgzODY3NTQxMzg5NzU2Xyk7IiBkPSJNNTU5LjksMTEwLjZ2MjQ4aC03Ny43di05Ni43aC03My45djk2LjcKCQloLTc3Ljd2LTI0OGg3Ny43djg5LjNoNzMuOXYtODkuM0g1NTkuOXoiLz4KCQoJCTxsaW5lYXJHcmFkaWVudCBpZD0iU1ZHSURfMDAwMDAwMzgzODA5Mzg5Mzk2NzU5NDQxNzAwMDAwMDUwOTg0NTgwODQ0OTk0MzA1NjBfIiBncmFkaWVudFVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgeDE9IjU4Ny45MzQzIiB5MT0iMjMzLjY3NjQiIHgyPSI3ODYuNTA5IiB5Mj0iMjMzLjY3NjQiPgoJCTxzdG9wICBvZmZzZXQ9IjAiIHN0eWxlPSJzdG9wLWNvbG9yOiMzMzZDQjMiLz4KCQk8c3RvcCAgb2Zmc2V0PSIxIiBzdHlsZT0ic3RvcC1jb2xvcjojMUM1REE5Ii8+Cgk8L2xpbmVhckdyYWRpZW50PgoJPHBhdGggc3R5bGU9ImZpbGw6dXJsKCNTVkdJRF8wMDAwMDAzODM4MDkzODkzOTY3NTk0NDE3MDAwMDAwNTA5ODQ1ODA4NDQ5OTQzMDU2MF8pOyIgZD0iTTc3NS41LDMyMy45Yy03LjQsMTEuNC0xOCwyMC41LTMyLDI3LjEKCQljLTE0LDYuNy0zMC43LDEwLTUwLjEsMTBjLTI5LjcsMC01NC4xLTYuOS03My40LTIwLjhjLTE5LjMtMTMuOS0yOS43LTM0LjMtMzEuMy02MS4xaDgyLjdjMS4yLDE0LjIsNy41LDIxLjQsMTguOSwyMS40CgkJYzQsMCw3LjItMS4xLDkuNi0zLjJjMi41LTIuMSwzLjctNS4xLDMuNy05LjFjMC01LjgtMy0xMC40LTguOS0xMy44Yy02LTMuNC0xNS42LTcuMy0yOC45LTExLjdjLTE1LjYtNS4xLTI4LjctMTAuNC0zOS0xNS44CgkJYy0xMC40LTUuNC0xOS40LTEzLjMtMjcuMS0yMy44Yy03LjctMTAuNS0xMS42LTI0LjItMTEuNi00MWMwLTE2LjEsNC4xLTI5LjgsMTIuNC00MS4yYzguMy0xMS4zLDE5LjYtMTkuOSwzNC0yNS43CgkJYzE0LjQtNS44LDMwLjUtOC44LDQ4LjUtOC44YzI5LjYsMCw1My4yLDYuOSw3MC43LDIwLjdjMTcuNSwxMy44LDI3LjEsMzMuNiwyOC43LDU5LjVoLTgzLjdjLTEuMi0xMy4xLTYuNS0xOS42LTE2LjEtMTkuNgoJCWMtMy4zLDAtNiwxLTguMSwzYy0yLjEsMi0zLjIsNS0zLjIsOC45YzAsNS40LDMsOS44LDguOSwxMy4xYzYsMy40LDE1LjIsNy4zLDI3LjgsMTEuN2MxNS45LDUuNiwyOSwxMS4yLDM5LjQsMTYuNgoJCWMxMC40LDUuNSwxOS41LDEzLjUsMjcuMywyNC4yYzcuOCwxMC42LDExLjcsMjQuMiwxMS43LDQwLjhDNzg2LjUsMjk5LjYsNzgyLjgsMzEyLjQsNzc1LjUsMzIzLjl6Ii8+CjwvZz4KPGc+CgkKCQk8bGluZWFyR3JhZGllbnQgaWQ9IlNWR0lEXzAwMDAwMDgyMzM5OTc3NDIwNjA1OTE4NTUwMDAwMDA0NTA4NjY0MzY1NDkxNDU0MDg1XyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiIHgxPSI4MjEuOTYwOSIgeTE9IjIzOC45MjExIiB4Mj0iOTYxLjc2MDciIHkyPSIyMzguOTIxMSI+CgkJPHN0b3AgIG9mZnNldD0iMCIgc3R5bGU9InN0b3AtY29sb3I6IzMzNkNCMyIvPgoJCTxzdG9wICBvZmZzZXQ9IjEiIHN0eWxlPSJzdG9wLWNvbG9yOiMxQzVEQTkiLz4KCTwvbGluZWFyR3JhZGllbnQ+Cgk8cGF0aCBzdHlsZT0iZmlsbDp1cmwoI1NWR0lEXzAwMDAwMDgyMzM5OTc3NDIwNjA1OTE4NTUwMDAwMDA0NTA4NjY0MzY1NDkxNDU0MDg1Xyk7IiBkPSJNOTYxLjgsMjExLjV2NTQuOUg4MjJ2LTU0LjlIOTYxLjh6Ii8+CjwvZz4KPGc+Cgk8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNMTM2LjIsNDIyLjFjOC4xLDYuNCwxMy41LDE1LDE2LjEsMjUuOWgtMjAuOGMtMi4yLTUuMy01LjUtOS41LTEwLTEyLjZjLTQuNS0zLjEtMTAtNC42LTE2LjMtNC42CgkJYy01LjIsMC0xMCwxLjMtMTQuMiwzLjljLTQuMiwyLjYtNy41LDYuNC05LjgsMTEuMmMtMi4zLDQuOS0zLjUsMTAuNi0zLjUsMTcuMWMwLDYuNSwxLjIsMTIuMSwzLjUsMTdjMi4zLDQuOSw1LjYsOC42LDkuOCwxMS4yCgkJYzQuMiwyLjYsOC45LDMuOSwxNC4yLDMuOWM2LjQsMCwxMS44LTEuNSwxNi4zLTQuNmM0LjUtMy4xLDcuOS03LjMsMTAtMTIuNmgyMC44Yy0yLjYsMTAuOS04LDE5LjYtMTYuMSwyNS45CgkJYy04LjEsNi40LTE4LjQsOS41LTMwLjcsOS41Yy05LjQsMC0xNy44LTIuMS0yNS02LjRjLTcuMi00LjMtMTIuOS0xMC4yLTE2LjgtMTcuOWMtNC03LjctNi0xNi40LTYtMjYuMWMwLTkuOCwyLTE4LjYsNi0yNi4yCgkJYzQtNy43LDkuNi0xMy42LDE2LjgtMTcuOWM3LjItNC4zLDE1LjYtNi40LDI1LjEtNi40QzExNy45LDQxMi42LDEyOC4xLDQxNS44LDEzNi4yLDQyMi4xeiIvPgoJPHBhdGggY2xhc3M9InN0NiIgZD0iTTI4MC45LDQxOC42YzcuNSw0LjMsMTMuNSwxMC4zLDE3LjgsMThjNC4zLDcuNyw2LjUsMTYuNCw2LjUsMjYuMmMwLDkuNy0yLjIsMTguNS02LjUsMjYuMgoJCWMtNC4zLDcuOC0xMC4zLDEzLjgtMTcuOCwxOC4xYy03LjUsNC4zLTE1LjksNi41LTI1LjIsNi41Yy05LjMsMC0xNy42LTIuMS0yNS4yLTYuNWMtNy41LTQuMy0xMy41LTEwLjMtMTcuOC0xOC4xCgkJYy00LjMtNy44LTYuNS0xNi41LTYuNS0yNi4yYzAtOS43LDIuMi0xOC40LDYuNS0yNi4yYzQuMy03LjcsMTAuMy0xMy43LDE3LjgtMThjNy41LTQuMywxNS45LTYuNSwyNS4yLTYuNQoJCUMyNjUsNDEyLjIsMjczLjQsNDE0LjMsMjgwLjksNDE4LjZ6IE0yNDAuNCw0MzQuM2MtNC40LDIuNi03LjgsNi40LTEwLjMsMTEuM2MtMi41LDQuOS0zLjcsMTAuNi0zLjcsMTcuMmMwLDYuNSwxLjIsMTIuMywzLjcsMTcuMgoJCWMyLjUsNC45LDUuOSw4LjcsMTAuMywxMS4zYzQuNCwyLjYsOS41LDMuOSwxNS4zLDMuOWM1LjgsMCwxMC45LTEuMywxNS4zLTMuOWM0LjQtMi42LDcuOC02LjQsMTAuMy0xMS4zCgkJYzIuNS00LjksMy43LTEwLjYsMy43LTE3LjJjMC02LjUtMS4yLTEyLjMtMy43LTE3LjJjLTIuNS00LjktNS45LTguNy0xMC4zLTExLjNjLTQuNC0yLjYtOS41LTMuOS0xNS4zLTMuOQoJCUMyNDkuOSw0MzAuNCwyNDQuOCw0MzEuNywyNDAuNCw0MzQuM3oiLz4KCTxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik00NjguOSw0MTQuN3Y5Ny45aC0xOS42di02OC4zbC0yNS4xLDY4LjNINDA3bC0yNS4xLTY4djY4aC0xOS44di05Ny45aDI0bDI5LjcsNzMuNmwyOS4yLTczLjZINDY4Ljl6Ii8+Cgk8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNNjM1LjYsNDE0Ljd2OTcuOUg2MTZ2LTY4LjNsLTI1LjEsNjguM2gtMTcuMWwtMjUuMS02OHY2OGgtMTkuOHYtOTcuOWgyNGwyOS43LDczLjZsMjkuMi03My42SDYzNS42eiIvPgoJPHBhdGggY2xhc3M9InN0NiIgZD0iTTcxNC43LDQxMy42djU4LjFjMCw3LjgsMS43LDEzLjYsNS4xLDE3LjVjMy40LDMuOSw4LjMsNS44LDE0LjgsNS44YzYuNCwwLDExLjItMS45LDE0LjctNS44CgkJYzMuNC0zLjksNS4xLTkuNyw1LjEtMTcuNXYtNTguMWgxOS42djU4LjFjMCw5LjItMS43LDE2LjktNS4xLDIzLjJjLTMuNCw2LjMtOC4xLDExLTE0LjIsMTQuMWMtNiwzLjEtMTIuOSw0LjYtMjAuNSw0LjYKCQljLTExLjksMC0yMS40LTMuNi0yOC41LTEwLjdjLTcuMS03LjEtMTAuNy0xNy41LTEwLjctMzEuM3YtNTguMUg3MTQuN3oiLz4KCTxwYXRoIGNsYXNzPSJzdDYiIGQ9Ik05MTcuNCw1MTIuNmgtMTkuOGwtNDQuMy02Ny4zdjY3LjNoLTE5Ljh2LTk5aDE5LjhsNDQuMyw2Ny45di02Ny45aDE5LjhWNTEyLjZ6Ii8+Cgk8cGF0aCBjbGFzcz0ic3Q2IiBkPSJNOTk3LjIsNDEzLjZ2OTloLTE5Ljh2LTk5SDk5Ny4yeiIvPgoJPHBhdGggY2xhc3M9InN0NiIgZD0iTTExMjQuNSw0MTMuNnYxNS43aC0yNy4zdjgzLjNoLTE5Ljh2LTgzLjNoLTI3LjJ2LTE1LjdIMTEyNC41eiIvPgoJPHBhdGggY2xhc3M9InN0NiIgZD0iTTEyNTcuMyw0MTMuNmwtMzMuNSw2NC40djM0LjZoLTE5Ljl2LTM0LjZsLTMzLjctNjQuNGgyMi43bDIxLDQzLjNsMjEtNDMuM0gxMjU3LjN6Ii8+CjwvZz4KPC9zdmc+Cg==" class="slide-logo r-stretch"><div class="footer footer-default">
 
 </div>
-</section></section>
+</section>
 </div>
   </div>
 
