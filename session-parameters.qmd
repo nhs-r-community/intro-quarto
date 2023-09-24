@@ -56,7 +56,7 @@ quarto render my_report.qmd -P country:"United_Kingdom" -P month_start:"2020-01-
 
 ## Rendering multiple reports
 
-The parameters have been for just one report but if we need to run several in one go we need to a function and a loop in R.
+The parameters have been for just one report but if we need to run several in one go we need to use a function and a loop in R.
 
 ::: {.incremental}
 - A function - is a block of code which only runs when its called (Source: [W3Schools](https://www.w3schools.com/r/r_functions.asp))
