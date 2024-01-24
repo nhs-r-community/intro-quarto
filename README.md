@@ -8,6 +8,10 @@ This is a first edition of the Introduction to Quarto material based on the cour
 
 The links to the published materials is in a suggested order.
 
+## Course preparation
+
+Data for the course is held in a separate [repository](https://github.com/nhs-r-community/intro_quarto_data) and details on how to get set up for the course can be found in the [NHS-R Way book](https://nhsrway.nhsrcommunity.com/training.html#introduction-to-quarto-course-materials).
+
 # Part 1
 
 ## Introduction
