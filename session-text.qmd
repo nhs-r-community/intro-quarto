@@ -146,7 +146,7 @@ Copy this to `my-report.qmd` and correct the issues
 ::: {.column width='50%'}
 ```markdown
 Check the spacing:
-- This is right up again the text
+- This is right up against the text
 
 -This is missing a space
 *Also missing a space
