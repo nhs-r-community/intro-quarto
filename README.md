@@ -29,7 +29,9 @@ Data for the course is held in a separate [repository](https://github.com/nhs-r-
 - [Rendering](https://nhs-r-community.github.io/intro-quarto/session-rendering.html#/title-slide)
 - [Parameters](https://nhs-r-community.github.io/intro-quarto/session-parameters.html#/title-slide)  
 
-[Break](https://nhs-r-community.github.io/intro-quarto/session-break-slide.html#/title-slide)
+# Break 
+
+[Break](http://assets.nhsrcommunity.com/quarto-slides/session-break-slide.html#/title-slide)
 
 
 # Spotted a mistake?
