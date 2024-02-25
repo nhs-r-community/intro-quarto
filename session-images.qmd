@@ -54,7 +54,7 @@ knitr::include_graphics("img/purrr_cat.png")
 The `Visual` editor is great for WSIWYG (what you see is what you get) and the code that's generated can be seen in `Source`:
 
 ::: incremental
-- Open file `example_report.qmd` in folder `images_report/`
+-   Open file `example_report.qmd` in folder `images_report/`
 -   In the Visual view go to the bottom of the report and type `/` then image
 -   Select `bakers1.png`
 -   Look at the code in `Source`
@@ -100,7 +100,7 @@ A subfolder from the main root needs `../`
 
 ## Let's try this together!
 
-1.  Open `images_report/example_report.qmd
+1.  Open \`images_report/example_report.qmd
 2.  In the `Source` view we'll link to an image in the same folder by putting the cursor between `()` and clicking Tab
 3.  Then link to an image in a subfolder by putting the cursor after the `/` and then Tab
 4.  Finishing with a link to an image in a subfolder from the main root
@@ -111,12 +111,12 @@ Same folder ![](bakers_1.png) Sub folder ![](img/bakers_2.png) Folder from subfo
 
 . . .
 
-:::{.callout-tip collapse=false appearance='default' icon=true}
+::: {.callout-tip collapse="false" appearance="default" icon="true"}
 ## Show inline
-- If Global Options > RMarkdown > Show output inline for all R Markdown... is ticked the picture will automatically appear in the script. 
-- To remove untick but may also requires a RStudio restart `Ctrl + Shift + F10`
-:::
 
+-   If Global Options \> RMarkdown \> Show output inline for all R Markdown... is ticked the picture will automatically appear in the script.
+-   To remove untick but may also requires a RStudio restart `Ctrl + Shift + F10`
+:::
 
 ## Seeing the image in the script
 
@@ -195,9 +195,15 @@ knitr::include_graphics("img/bakers_3.png")
 
 ```
 
-## Resizing images
+## Resizing images using Markdown
 
-Markdown doesn't support resizing and html requires knowledge of a different language but using {knitr} and Quarto options:
+Markdown supports resizing and the best way to generate this code can be from the `Visual` view as the wizard has prompts.
+
+The wizard gives options for captions, alternative text, centering and sizes.
+
+## Resizing images using `{knitr}`
+
+{knitr} can also be used with Quarto chunk options:
 
 ```{r}
 #| echo: fenced
@@ -207,7 +213,6 @@ knitr::include_graphics("img/bakers_3.png")
 ```
 
 . . .
-
 
 ```{r}
 #| eval: true
@@ -220,7 +225,6 @@ knitr::include_graphics("img/bakers_3.png")
 
 {knitr} in a code chunk can change where the image appears on the page:
 
-
 ```{r}
 #| echo: fenced
 #| out-width: "30%"
@@ -231,7 +235,6 @@ knitr::include_graphics("img/bakers_3.png")
 
 . . .
 
-
 ```{r}
 #| eval: true
 #| out-width: "30%"
@@ -239,7 +242,6 @@ knitr::include_graphics("img/bakers_3.png")
 
 knitr::include_graphics("img/bakers_3.png")
 ```
-
 
 ## Quiz - 1
 
