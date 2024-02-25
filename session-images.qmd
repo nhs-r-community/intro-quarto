@@ -58,7 +58,7 @@ The `Visual` editor is great for WSIWYG (what you see is what you get) and the c
 ::: incremental
 -   Open file `images-report.qmd` in folder `images_report/`
 -   In the Visual view go to the bottom of the report and type `/` then `image`
--   Select `bakers1.png`
+-   Select `bakers_1.png`
 -   Look at the code in `Source`
 :::
 
