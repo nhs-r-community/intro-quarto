@@ -93,6 +93,6 @@ project:
     - "!folder-example/"
 ```
 
-This includes anything with a `.qmd` ending but not a `.md` and not for files that are in a folder called `files/`
+This includes anything with a `.qmd` ending but not a `.md` and not for files that are in a folder called `folder-example/ger`
 
 ## Next Section 
