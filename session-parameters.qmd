@@ -30,7 +30,7 @@ quarto::quarto_render("my_report.qmd",
 
 On the Terminal:
 
-```markdown
+``` markdown
 quarto render my_report.qmd -P country:"United_Kingdom" --to html
 ```
 
@@ -50,7 +50,7 @@ quarto::quarto_render("my_report.qmd",
 
 On the Terminal:
 
-```markdown
+``` markdown
 quarto render my_report.qmd -P country:"United_Kingdom" -P month_start:"2020-01-01" -P month_end:"2020-01-01" --to html
 ```
 
@@ -58,10 +58,14 @@ quarto render my_report.qmd -P country:"United_Kingdom" -P month_start:"2020-01-
 
 The parameters have been for just one report but if we need to run several in one go we need to use a function and a loop in R.
 
-::: {.incremental}
-- A function - is a block of code which only runs when its called (Source: [W3Schools](https://www.w3schools.com/r/r_functions.asp))
-- A loop - is used for repeating code (and can be used with functions)
+::: incremental
+-   A function - is a block of code which only runs when its called (Source: [W3Schools](https://www.w3schools.com/r/r_functions.asp))
+-   A loop - is used for repeating code (and can be used with functions)
 :::
+
+## Looping like a roundabout
+
+![Artwork by \@allison_horst](img/dizzy-monsters.png){fig-alt="Three green fuzzy monsters being whipped around on a spinning park platform, with one that’s already been flung on the ground looking dizzy."}
 
 ## A function
 
@@ -136,3 +140,5 @@ purrr::map2(c("New_Zealand", "United_Kingdom"), "2020-01-01", run_docs)
 Credit: Blog by Meghan Hall, [Tips for Custom Parameterized PDFs in Quarto](https://meghan.rbind.io/blog/quarto-pdfs/#parameterized-reports-in-r-and-quarto)
 
 Read more in the blog from Mike Mahoney, [How to use Quarto for Parametized Reporting](https://www.mm218.dev/posts/2022-08-04-how-to-use-quarto-for-parameterized-reporting/#parameterized-reports) including Parametized SQL
+
+Illustrations from Hadley Wickham's ACM talk ["The Joy of Functional Programming (for Data Science"](https://allisonhorst.com/wickham-tidy-bakers)).

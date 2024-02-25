@@ -275,4 +275,4 @@ Lists are `-` for bullets and `1.` for numbered
 
 ## Next Section {.smaller}
 
-Artwork from Allison Horst "Illustrations from Hadley Wickham's ACM talk"The Joy of Functional Programming (for Data Science)." https://allisonhorst.com/wickham-tidy-bakers
+Artwork by @allison_horst. Illustrations from Hadley Wickham's ACM talk ["The Joy of Functional Programming (for Data Science"](https://allisonhorst.com/wickham-tidy-bakers)).
