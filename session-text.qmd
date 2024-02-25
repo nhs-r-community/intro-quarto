@@ -37,7 +37,7 @@ Quarto reports support text and code with the text being `Markdown`
 . . .
 
 ::: {.callout-warning collapse="false" appearance="default" icon="true"}
-## Optional caption (warning)
+## Watch the spaces! (warning)
 
 Make sure that there is a space between the hashes!
 
