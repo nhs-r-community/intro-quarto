@@ -19,11 +19,11 @@ Data for the course is held in a separate [repository](https://github.com/nhs-r-
 - [What's Inside](https://nhs-r-community.github.io/intro-quarto/session-whats-inside.html#/title-slide)  
 - [Source and Visual views](https://nhs-r-community.github.io/intro-quarto/session-source-visual.html#/title-slide)
 - [Text](https://nhs-r-community.github.io/intro-quarto/session-text.html#/title-slide)  
-- [Images](https://nhs-r-community.github.io/intro-quarto/session-images.html#/title-slide)  
+- [Code chunks](https://nhs-r-community.github.io/intro-quarto/session-code-chunks.html#/title-slide)
 
 # Part 2
-- [Code chunks](https://nhs-r-community.github.io/intro-quarto/session-code-chunks.html#/title-slide)  
-- [Inline code](https://nhs-r-community.github.io/intro-quarto/session-inline-code.html#/title-slide)  
+- [Images](https://nhs-r-community.github.io/intro-quarto/session-images.html#/title-slide)  
+- [Inline code](https://nhs-r-community.github.io/intro-quarto/session-inline-code.html#/title-slide)
 - [Tabs](https://nhs-r-community.github.io/intro-quarto/session-tabs.html#/title-slide)  
 - [Output formats](https://nhs-r-community.github.io/intro-quarto/session-output-formats.html#/title-slide)  
 - [Rendering](https://nhs-r-community.github.io/intro-quarto/session-rendering.html#/title-slide)
