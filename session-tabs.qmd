@@ -38,8 +38,8 @@ And Quarto specific code is denoted by `:::` at the start and end of code to be 
 For example 
 
 ```markdown
-::: {.panel-tabset}
 # Country analysis
+::: {.panel-tabset}
 ## Overview
 ## Covid cases
 :::
@@ -58,15 +58,7 @@ remotes::install_github("matt-dray/quartostamp")
 
 . . .
 
-Then we'll select from `## Overview` to the very end and select `Insert Tabset` from the Addins menu (under Help) and Render
-
-. . .
-
-:::{.callout-tip collapse=false appearance='default' icon=true}
-## Tip! {quartostamp} can be used with or without text
-- To get the template code select from the add in
-- But where you've already written the text, highlight before selecting the add-in
-:::
+Then we'll `Insert Tabset` from the Addins menu (under Help) and then copy the header code over the `Tab A` and `Tab B`
 
 ## Styling tabs
 
@@ -75,8 +67,8 @@ It's possible to change the view of the tabs by adding `.nav-pills`:
 . . .
 
 ```markdown
-::: {.panel-tabset .nav-pills}
 # Country analysis
+::: {.panel-tabset .nav-pills}
 ## Overview
 ## Covid cases
 :::
