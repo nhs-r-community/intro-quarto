@@ -18,24 +18,26 @@ library(knitr)
 The NHS-R Community logo taken from the GitHub repository directly
 
 ``` markdown
-![](https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg)
+![](https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png)
 ```
 
 . . .
 
-![](https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg)
+![](https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png)
 
 ## Adding images using html
 
 ``` markdown
-<a href='https://nhsrcommunity.com/'><img src='https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg' align="right" height="80" /></a>
+<a href='https://nhsrcommunity.com/'><img src='https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png' align="right" height="80" /></a>
 ```
 
 . . .
 
-<a alt="NHS-R Community's logo" href='https://nhsrcommunity.com/'><img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.svg"/></a>
+<a alt="NHS-R Community's logo" href='https://nhsrcommunity.com/'><img src="https://raw.githubusercontent.com/nhs-r-community/assets/main/logo/nhsr-logo.png"/></a>
 
 ## Adding images using `{knitr}` and code chunks
+
+This is for images that are available on the computer and in this case is to a folder called `img` which is part of the slide code:
 
 ```{r}
 #| echo: true
@@ -54,8 +56,8 @@ knitr::include_graphics("img/purrr_cat.png")
 The `Visual` editor is great for WSIWYG (what you see is what you get) and the code that's generated can be seen in `Source`:
 
 ::: incremental
--   Open file `example_report.qmd` in folder `images_report/`
--   In the Visual view go to the bottom of the report and type `/` then image
+-   Open file `images-report.qmd` in folder `images_report/`
+-   In the Visual view go to the bottom of the report and type `/` then `image`
 -   Select `bakers1.png`
 -   Look at the code in `Source`
 :::
@@ -78,6 +80,7 @@ countdown::countdown(minutes = 8,
 In markdown (`Source` view) linking to an image in the same area as the `.qmd` file is straightforward, as is going to a subfolder
 
 ``` markdown
+![](bakers_1.png)
 ![](img/bakers_2.png)
 ```
 
@@ -98,25 +101,25 @@ A subfolder from the main root needs `../`
 -   Putting the `/` after a folder will show what's in that folder
 :::
 
-## Let's try this together!
+## Your turn
 
-1.  Open \`images_report/example_report.qmd
+1.  Open \`images_report/images-report.qmd\`
 2.  In the `Source` view we'll link to an image in the same folder by putting the cursor between `()` and clicking Tab
 3.  Then link to an image in a subfolder by putting the cursor after the `/` and then Tab
 4.  Finishing with a link to an image in a subfolder from the main root
 
-::: notes
-Same folder ![](bakers_1.png) Sub folder ![](img/bakers_2.png) Folder from subfolder from the main root ![](../images/bakers_3.png)
-:::
-
-. . .
-
-::: {.callout-tip collapse="false" appearance="default" icon="true"}
-## Show inline
-
--   If Global Options \> RMarkdown \> Show output inline for all R Markdown... is ticked the picture will automatically appear in the script.
--   To remove untick but may also requires a RStudio restart `Ctrl + Shift + F10`
-:::
+```{r}
+#| eval: true
+countdown::countdown(minutes = 5,
+                     color_border = "#005EB8",
+                     color_text = "#005EB8",
+                     color_running_text = "white",
+                     color_running_background = "#005EB8",
+                     color_finished_text = "#005EB8",
+                     color_finished_background = "white",
+                     margin = "0.9em",
+                     font_size = "2em")
+```
 
 ## Seeing the image in the script
 
@@ -194,6 +197,16 @@ knitr::include_graphics("img/bakers_3.png")
 knitr::include_graphics("img/bakers_3.png")
 
 ```
+
+## Checking for alt text
+
+To see alt text, when the report is viewed in the browser (not in the presentation or Viewer pane in RStudio), right click and `Inspect Element`.
+
+If you have the setting to view the report in R Studio select the button:
+
+![](img/view-browser-button.PNG){fig-alt="Screenshot of the buttons in the Presentation pane of RStudio with the window icon with arrow pointing up the top right highlighted."}
+
+And this will copy to the browser.
 
 ## Resizing images using Markdown
 
