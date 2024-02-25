@@ -121,13 +121,19 @@ countdown::countdown(minutes = 5,
                      font_size = "2em")
 ```
 
-## Seeing the image in the script
+## Seeing the image in the Source script
 
 Using the drop down menu with a cog, found next to the blue arrow with `Render`
 
 > Preview Images and Equations
 
 will not be ticked, selecting this will allow Quarto to show the image in the report script.
+
+:::{.callout-important collapse=false appearance='default' icon=true}
+## Options change between Source and Visual
+Images will always appear in the Visual view and the option to turn this off is not possible.
+:::
+
 
 ## Alt text
 
