@@ -214,9 +214,11 @@ glimpse(NHSRdatasets::covid19)
 ::: {.callout-note collapse="false" appearance="default" icon="true"}
 ## #\| include
 
-`include` default is true and when set to false will prevent any output (code or results) from being included in the output.
+- `include` default is true and when set to false will prevent any output (code or results) from being included in the output.
 
-The code is still run and available to subsequent chunks.
+- This includes the {tidyverse} message.
+
+- The code is still run and available to subsequent chunks.
 :::
 
 ## Warning
@@ -256,11 +258,13 @@ glimpse(NHSRdatasets::covid19)
 
 ::: {.callout-warning collapse="false" appearance="default" icon="true"}
 ## Don't repeat labels!
-
-Duplicating chunk labels will break the report.
+- Duplicating chunk labels will break the report if you have other content in it *but* not if you are referring to an earlier chunk to recycle the code
+- `ref-label:` can also be used instead of `label:`
 :::
 
 . . .
+
+Erroring:
 
 ``` markdown
 processing file: covid-report.qmd
@@ -279,8 +283,12 @@ Execution halted
 
 In the report `covid-analysis.qmd`:
 
-- Name the two code chunks using `label` in the chunk options
-- Render the report
+- Name two existing code chunks using `label: test` 
+- Render the report (see the error)
+- Remove the label from the second chunk
+- Create a new chunk and call that `ref-label: test`
+- Put in opposite chunk options to the first for `eval:` and `echo:`, render and see the difference
+
 
 ```{r}
 #| echo: false
@@ -304,7 +312,6 @@ Chunk options can be set once at the YAML and to apply the whole report.
 execute: 
   echo: false
   eval: false
-  message: false
   warning: false
 ```
 
