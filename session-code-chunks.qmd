@@ -277,7 +277,7 @@ Execution halted
 
 ## Your turn!
 
-In the report `my-report.qmd`:
+In the report `covid-analysis.qmd`:
 
 - Name the two code chunks using `label` in the chunk options
 - Render the report

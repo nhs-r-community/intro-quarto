@@ -94,7 +94,7 @@ format:
 
 ## Your turn
 
-In `my-report.qmd` do the following:
+In `covid-analysis.qmd` do the following:
 
 ::: {.incremental}
 - Add a table of contents (toc)

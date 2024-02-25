@@ -139,7 +139,7 @@ These data types occur in various places
 
 . . .
 
-Copy this to `my-report.qmd` and correct the issues
+Copy this to `covid-analysis.qmd` and correct the issues
 
 :::: {.columns}
 

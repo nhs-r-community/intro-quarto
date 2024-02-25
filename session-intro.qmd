@@ -119,7 +119,7 @@ That everyone is:
 
 ## Your turn
 
-Open the file `my-report.qmd`, then **Render** to HTML
+Open the file `covid-analysis.qmd`, then **Render** to HTML
 
 Try to identify these parts in the source and the output:
 
