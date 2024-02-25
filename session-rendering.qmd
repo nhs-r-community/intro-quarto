@@ -18,13 +18,25 @@ Using the button on the RStudio panel (under the tabs)
 
 Whenever you save this updates the document
 
-. . . 
-
 :::{.callout-tip collapse=false appearance='default' icon=true}
-## Combining features in RStudio
-- It can be helpful to change the settings in the cog (next to `Render`) to `Preview in View Pane` in combination with the `Render on Save`
-- This means any changes can be seen without leaving RStudio
+## Cloud default settings are different!
+On a computer the default 
+
+`Global Options.../Code/Saving/Automatically save when editor loses focus`
+
+is not ticked which allows for the `Render on Save` function. On Posit Cloud it _is_ ticked.
 :::
+
+
+## Combining features in RStudio
+
+The settings in the cog (next to `Render`) include:
+
+::: {.incremental}
+- `Preview in View Pane` which opens a Viewer pane within RStudio
+- `Chunk output` Inline is within the current screen but there is the option to only have output appear in the Console.
+:::
+
 
 ## Rendering from the R Console
 
