@@ -15,19 +15,19 @@ Data for the course is held in a separate [repository](https://github.com/nhs-r-
 # Part 1
 
 ## Introduction
-- [Setting up](https://nhs-r-community.github.io/intro-quarto/session-intro.html#/title-slide)  
-- [What's Inside](https://nhs-r-community.github.io/intro-quarto/session-whats-inside.html#/title-slide)  
-- [Source and Visual views](https://nhs-r-community.github.io/intro-quarto/session-source-visual.html#/title-slide)
-- [Text](https://nhs-r-community.github.io/intro-quarto/session-text.html#/title-slide)  
-- [Code chunks](https://nhs-r-community.github.io/intro-quarto/session-code-chunks.html#/title-slide)
+- [Setting up](https://intro-quarto.nhsrcommunity.com/session-intro.html#/title-slide)  
+- [What's Inside](https://intro-quarto.nhsrcommunity.com/session-whats-inside.html#/title-slide)  
+- [Source and Visual views](https://intro-quarto.nhsrcommunity.com/session-source-visual.html#/title-slide)
+- [Text](https://intro-quarto.nhsrcommunity.com/session-text.html#/title-slide)  
+- [Code chunks](https://intro-quarto.nhsrcommunity.com/session-code-chunks.html#/title-slide)
 
 # Part 2
-- [Images](https://nhs-r-community.github.io/intro-quarto/session-images.html#/title-slide)  
-- [Inline code](https://nhs-r-community.github.io/intro-quarto/session-inline-code.html#/title-slide)
-- [Tabs](https://nhs-r-community.github.io/intro-quarto/session-tabs.html#/title-slide)  
-- [Output formats](https://nhs-r-community.github.io/intro-quarto/session-output-formats.html#/title-slide)  
-- [Rendering](https://nhs-r-community.github.io/intro-quarto/session-rendering.html#/title-slide)
-- [Parameters](https://nhs-r-community.github.io/intro-quarto/session-parameters.html#/title-slide)  
+- [Images](https://intro-quarto.nhsrcommunity.com/session-images.html#/title-slide)  
+- [Inline code](https://intro-quarto.nhsrcommunity.com/session-inline-code.html#/title-slide)
+- [Tabs](https://intro-quarto.nhsrcommunity.com/session-tabs.html#/title-slide)  
+- [Output formats](https://intro-quarto.nhsrcommunity.com/session-output-formats.html#/title-slide)  
+- [Rendering](https://intro-quarto.nhsrcommunity.com/session-rendering.html#/title-slide)
+- [Parameters](https://intro-quarto.nhsrcommunity.com/session-parameters.html#/title-slide)  
 
 # Break 
 
